@@ -29,8 +29,8 @@ DEBUG = 'RENDER' not in os.environ
 ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', 'localhost:85', '127.0.0.1', '157.245.156.179', '157.245.156.179:8080',  env('SERVER', default='127.0.0.1')]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://' + env('SERVER', default='127.0.0.1') ]
+ALLOWED_HOSTS = ['localhost', 'localhost:4000', '127.0.0.1', '157.245.156.179', '157.245.156.179:4080',  env('SERVER', default='127.0.0.1')]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:4000', 'http://127.0.0.1', '157.245.156.179:4080', ' 'https://' + env('SERVER', default='127.0.0.1') ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    
