@@ -19,9 +19,10 @@ class MakalahForm(forms.ModelForm):
 
     class Meta:
         model = Makalah
-        fields = ('judul_makalah','abstrak', 'kategori', 'klaim', 'latar_belakang', 'maksud_tujuan', 'identifikasi_masalah', 'analisis_masalah', 'metodologi', 'desain_inovasi', 'implementasi', 'evaluasi_implementasi', 'manfaat_finansial', 'manfaat_non_finansial', 'daftar_pustaka')
+        fields = ('judul_makalah', 'kata_kunci', 'abstrak', 'kategori', 'klaim', 'latar_belakang', 'maksud_tujuan', 'identifikasi_masalah', 'analisis_masalah', 'metodologi', 'desain_inovasi', 'implementasi', 'evaluasi_implementasi', 'manfaat_finansial', 'manfaat_non_finansial', 'daftar_pustaka')
         widgets = {
             'judul_makalah': forms.TextInput(attrs={'placeholder': 'Judul Makalah', 'style': 'width:60%;'}),
+            'kata_kunci': forms.TextInput(attrs={'placeholder': 'Kata Kunci', 'style': 'width:60%;'}),
             'abstrak': forms.Textarea(attrs={'placeholder': 'Abstrak makalah', 'style': 'width:60%;'}),
             'klaim': forms.Textarea(attrs={'placeholder': 'Klaim inovasi', 'style': 'width:60%;'}),
             'latar_belakang': forms.Textarea(attrs={'placeholder': 'Latar Belakang', 'style': 'width:60%;'}),

@@ -344,6 +344,7 @@
             </div>
         </div>
     </div>
+
 </section>
 <!-- END Blogs w/ 3 images & quote & text -->
 <section class="py-1 mt-5">
@@ -357,7 +358,8 @@
                     <option value="pertanyaan">Ajukan Pertanyaan</option>
                     <option value="kritikan">Kritikan</option>
                     <option value="saran_pengembangan">Saran Pengembangan</option>
-                    <option value="catatan_kritis">Catatan Kritis</option>
+                    <option value="catatan_kritis_umum">Catatan Kritis Umum</option>
+                    <option value="catatan_kritis_aplikasi">Catatan Kritis untuk Aplikasi</option>
                     <option value="ide_manfaat_inovasi">Ide Manfaat Inovasi</option>
                     <option value="ide_risiko_inovasi">Ide Risiko Inovasi</option>
                     <option value="ide_risiko_inovasi_softwarefull">Ide Risiko Inovasi Software Full</option>
@@ -382,12 +384,23 @@
             </div>
             <div class="col-lg-9 ms-auto me-auto">
                 <div class="col-lg-9">
-                    <textarea id="outputOpenAI" placeholder="" class="form-control" rows="10"></textarea>
+                    <div id="outputOpenAI" class="form-control" style="height: auto;"></div>
                 </div>
             </div>
         </div>
         <hr class="hrline">
-    </div>
+        
+        <div id="div_note_pertanyaan">
+              <div class="row">
+                  <div class="col-md-2">
+                      <label>Note Pertanyaan</label>
+                  </div>
+                  <div class="col-md-10">
+                      <p id="note_pertanyaan" class="text-dark"> {{ makalah.note_pertanyaan | safe }} </p>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
 </section>
 {% include 'includes/footer.html' %}
@@ -429,30 +442,11 @@ $(document).ready(function() {
     });
 });
 
-{% comment %} window.onload = function() {
-    var isi_judul_makalah = document.getElementById('judul_makalah').innerText;
-    var isi_abstrak = document.getElementById('abstrak').innerText;
-    var isi_klaim = document.getElementById('klaim').innerText;
-    var isi_latar_belakang = document.getElementById('latar_belakang').innerText;
-    var isi_maksud_tujuan = document.getElementById('maksud_tujuan').innerText;
-    var isi_identifikasi_masalah = document.getElementById('identifikasi_masalah').innerText;
-    var isi_analisis_masalah = document.getElementById('analisis_masalah').innerText;
-    var isi_metodologi = document.getElementById('metodologi').innerText;
-    var isi_desain_inovasi = document.getElementById('desain_inovasi').innerText;
-    var isi_implementasi = document.getElementById('implementasi').innerText;
-    var isi_evaluasi_implementasi = document.getElementById('evaluasi_implementasi').innerText;
-    var isi_manfaat_finansial = document.getElementById('manfaat_finansial').innerText;
-    var isi_manfaat_non_finansial = document.getElementById('manfaat_non_finansial').innerText;
-    var isi_daftar_pustaka = document.getElementById('daftar_pustaka').innerText;
-    console.log("isi_abstrak : " + isi_abstrak);
-} {% endcomment %}
-
-
 
 document
     .getElementById("generateOpenAIcontent")
     .addEventListener("click", async () => {
-
+        var id_makalah = "{{ makalah.id | escapejs }}";
         var isi_judul_makalah  = "{{ makalah.judul_makalah | escapejs  }}";
         var isi_abstrak = "{{ makalah.abstrak | escapejs }}";
         var isi_klaim = "{{ makalah.klaim | escapejs }}";
@@ -483,6 +477,7 @@ document
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
+                        data_id_makalah : id_makalah,
                         data_judul_makalah : isi_judul_makalah,
                         data_abstrak : isi_abstrak,
                         data_klaim : isi_klaim,
@@ -511,7 +506,8 @@ document
                 console.log(jawaban)
                 // historyOutput.value += '\n---\n' + jawaban;
 
-                document.getElementById('outputOpenAI').value = jawaban;
+                // document.getElementById('outputOpenAI').value = jawaban;
+                $('#outputOpenAI').html(jawaban);
 
                 // document.getElementById('id_narasi_konten').value = data.generated_idea;
 

@@ -4,7 +4,165 @@ def get_prompt_analisis_makalah(kategori_request, inputan_judul_makalah, inputan
 
     if kategori_request == 'pertanyaan':
         konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}.\n"
-        instruksi = f"Berdasarkan seluruh informasi tersebut, buatkan minimal 10 pertanyaan untuk perihal yang sifatnya menguji, perihal yang tampaknya salah atau aneh, ada logika yang aneh atau tidak tepat, adanya ketidaksingkronan atau inkonsistensi informasi. Berikan pertanyaan yang sulit dan tidak mudah dijawab."
+        instruksi = """
+        Berdasarkan seluruh informasi tersebut, buatkan 2 pertanyaan untuk perihal yang sifatnya menguji, perihal yang tampaknya salah atau aneh, ada logika yang aneh atau tidak tepat, adanya ketidaksingkronan atau inkonsistensi informasi. Berikan pertanyaan yang sulit dan tidak mudah dijawab.
+
+
+        """
+
+    elif kategori_request == 'kritikan':
+        konten = f"\n"
+        instruksi = f"Jadilah orang yang bersikap sangat skeptis, negatif dan pesimis terhadap karya inovasinya. Cari segala bentuk kelemahan dan alasan dan pertimbangan yang menunjukkan bahwa karya bersangkutan tidak pantas disebut inovasi, dan/atau dibangun dengan dasar atau justifikasi yang tidak kuat, dan/atau tidak memiliki keunggulan dan manfaat yang patut dibanggakan, dan/atau susah untuk diimplementasikan, dan/atau tidak menarik bagi pihak manapun untuk mengadopsinya. Apapun alasannya, Anda harus menggunakan argumen yang meyakinkan dan susah untuk dibantah.\n"
+
+    elif kategori_request == 'saran_pengembangan':
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}.\n"
+        instruksi = f"Sebatas dari informasi yang tersampaikan di makalah, buatkan rekomendasi atau usulan berikut konsideran atau alasannya, tentang bagaimana bentuk perbaikan atau penyempurnaan atau pengembangan lebih lanjut dari karya inovasi bersangkutan. Anda bisa mendasarkan pada potensi kelemahan dari karyanya, atau peningkatan dari apa yang sudah baik.\n"
+
+    elif kategori_request == 'catatan_kritis_umum':
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}.\n"
+        instruksi = f"Berdasarkan informasi tersebut, berikan remarks atau komentar atau catatan yang berbobot. Tunjukkan bahwa Anda adalah orang yang sangat berpengalaman di bidang pembangkitan listrik dan manajerial. Tidak perlu ragu menggunakan istilah yang sulit atau teknis dan sophisticated.\n"
+
+
+    elif kategori_request == 'catatan_kritis_aplikasi':
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}.\n"
+        instruksi = f"Berdasarkan informasi tersebut, berikan remarks atau komentar atau catatan atau pertanyaan terkait apapun dari sisi teknologi yang diulas. Ini bisa melingkupi apa saja, bisa dari tampilan, algoritma yang dipilih, arsitektur, framework, cara perangkat lunaknya dibangun, pilihan bahasa pemrograman, user acceptance test, apapun. Tunjukkan bahwa Anda adalah orang yang sangat berpengalaman di bidang teknologi. Tidak perlu ragu menggunakan istilah yang sulit atau teknis dan sophisticated. Untuk ini, Anda juga bisa membandingkan atau menyebut padanan atau perihal atau studi kasus di tempat lain yang bisa dikaitkan dengan konteks karya inovasi bersangkutan dari sisi teknologi; untuk menunjukkan bahwa Anda adalah orang yang sangat berwawasan.\n"
+
+    elif kategori_request == 'ide_manfaat_inovasi':
+        konten = f"\n"
+        instruksi = """
+        Berdasarkan informasi tersebut, silakan identifikasi dan analisis manfaat yang ditimbulkan dari karya inovasi bersangkutan. Fokuskan pada dua aspek utama, yaitu Manfaat Finansial dan Manfaat Non-Finansial, dengan mempertimbangkan manfaat langsung maupun tidak langsung:
+
+        1. Manfaat Finansial:
+        - Evaluasi potensi penghematan biaya yang dapat dihasilkan oleh inovasi, seperti pengurangan penggunaan sumber daya, efisiensi operasional, atau pengurangan pemborosan.
+        - Analisis kemungkinan inovasi dalam menghindari potential losses, seperti melalui peningkatan keandalan sistem atau pencegahan kesalahan.
+        - Pertimbangkan dan usulkan dampak positif lainnya pada aspek finansial, seperti peningkatan pendapatan atau ROI (Return on Investment).
+
+        2. Manfaat Non-Finansial:
+        - Tinjau peningkatan citra perusahaan sebagai hasil dari implementasi inovasi, termasuk persepsi publik dan reputasi di industri.
+        - Evaluasi tingkat kepuasan pengguna dan pengaruhnya terhadap loyalitas pelanggan atau keterlibatan pengguna.
+        - Analisis peningkatan kompetensi dan awareness di kalangan karyawan atau pengguna, serta dampaknya pada inovasi dan pengetahuan.
+        - Pertimbangkan peningkatan keselamatan dan kenyamanan kerja sebagai akibat dari penerapan inovasi.
+        - Identifikasi manfaat lainnya seperti peningkatan efisiensi kerja, kolaborasi tim, dan adaptabilitas.
+
+        Berikan ringkasan tentang setiap manfaat yang diidentifikasi, sertakan contoh atau kasus yang relevan, dan jelaskan bagaimana manfaat ini dapat mempengaruhi kinerja dan keberhasilan keseluruhan dari inovasi tersebut dalam jangka panjang
+        """
+
+    elif kategori_request == 'ide_risiko_inovasi':
+        konten = f"\n"
+        instruksi = f"\n"
+
+    elif kategori_request == 'ide_risiko_inovasi_softwarefull':
+        konten = f"\n"
+        instruksi = """
+        Berdasarkan informasi tersebut, silakan lakukan identifikasi dan analisis risiko, dengan menyertakan antisipasi dan masukan upaya untuk mengecilkan tingkat risikonya,  dengan fokus pada aspek-aspek berikut:
+
+        1. Risiko Teknis:
+        - Identifikasi potensi masalah teknis yang mungkin timbul, seperti bug, masalah kompatibilitas, atau kegagalan integrasi dengan sistem yang ada. Buat perkiraan sistem apa yang sekiranya bisa/berpotensi terintegrasi/diintegrasikan.
+        - Evaluasi risiko keamanan, termasuk potensi kerentanan terhadap serangan siber, akibat kesalahan manusia, atau kebocoran data. 
+
+        2. Risiko Operasional:
+        - Buat perkiraan tentang seberapa perangkat lunak akan mengubah proses kerja, permasalahan teknis yang bisa muncul akibat implementasi dan operasionalnya. Identifikasi masalah apa yang berpotensi muncul berdasarkan nature karya bersangkutan. 
+
+        3. Risiko Finansial:
+        - Tinjau potensi risiko finansial, termasuk biaya pengembangan yang berlebihan, biaya pemeliharaan, atau dampak pada penghasilan jika perangkat lunak tidak berfungsi seperti yang diharapkan.
+
+        4. Risiko Penerimaan Pengguna:
+        - Analisis risiko terkait dengan penerimaan perangkat lunak oleh pengguna akhir, termasuk kemungkinan penolakan atau kurangnya adopsi.
+
+        Berikan ringkasan tentang setiap risiko yang diidentifikasi, potensi dampaknya, dan saran untuk mitigasi risiko tersebut. Tujuan dari analisis ini adalah untuk membantu dalam mempersiapkan strategi pengelolaan risiko yang efektif untuk karya inovasi/perbaikan perangkat lunak tersebut.
+        """
+
+    elif kategori_request == 'ide_risiko_inovasi_softwarealat':
+        konten = f"\n"
+        instruksi = """
+        Silakan lakukan identifikasi dan analisis risiko dari karya improvement atau karya inovasi berbentuk perangkat lunak yang melibatkan penggunaan alat, peralatan, atau perangkat keras tersebut. Dalam analisis Anda, pertimbangkan aspek-aspek berikut dan sertakan saran serta strategi mitigasi:
+
+        1. Risiko Kompatibilitas Teknis:
+        - Identifikasi potensi masalah teknis yang mungkin timbul, seperti bug, masalah kompatibilitas, atau kegagalan integrasi dengan sistem yang ada. Buat perkiraan sistem apa yang sekiranya bisa/berpotensi terintegrasi/diintegrasikan.
+        - Evaluasi potensi risiko terkait dengan kompatibilitas antara perangkat lunak dan perangkat keras yang digunakan. Apakah ada isu interoperabilitas atau masalah integrasi yang mungkin timbul?
+        - Berikan saran untuk menguji dan memvalidasi kompatibilitas sebelum penerapan penuh.
+
+        2. Risiko Operasional dan Penggunaan:
+        - Buat perkiraan tentang seberapa perangkat lunak akan mengubah proses kerja, permasalahan teknis yang bisa muncul akibat implementasi dan operasionalnya. Identifikasi masalah apa yang berpotensi muncul berdasarkan nature karya bersangkutan. 
+        - Pertimbangkan risiko operasional yang mungkin terjadi karena penggunaan gabungan perangkat lunak dan perangkat keras, seperti masalah ergonomi, kesulitan dalam penggunaan, atau kesalahan pengguna.
+        - Sarankan pelatihan pengguna dan desain antarmuka yang ramah pengguna untuk meminimalkan risiko ini.
+
+        3. Risiko Kegagalan Perangkat Keras:
+        - Identifikasi risiko yang terkait dengan kegagalan perangkat keras yang digunakan bersama dengan perangkat lunak. Bagaimana kegagalan ini dapat mempengaruhi keseluruhan sistem?
+        - Sarankan rencana redundansi atau penggantian perangkat keras untuk memitigasi dampak dari kegagalan.
+
+        4. Risiko Keamanan dan Kerentanan:
+        - Evaluasi risiko keamanan, termasuk potensi kerentanan terhadap serangan siber, akibat kesalahan manusia, atau kebocoran data. 
+        - Analisis risiko keamanan yang timbul dari interaksi antara perangkat lunak dan perangkat keras, termasuk kerentanan potensial yang mungkin dieksploitasi.
+        - Berikan rekomendasi untuk pengujian keamanan yang komprehensif dan implementasi protokol keamanan yang kuat.
+
+        5. Risiko Biaya dan Anggaran:
+        - Tinjau potensi risiko finansial, termasuk biaya pengembangan yang berlebihan, biaya pemeliharaan, atau dampak pada penghasilan jika perangkat lunak tidak berfungsi seperti yang diharapkan.
+        - Tinjau risiko finansial yang berkaitan dengan biaya perangkat keras, pemeliharaan, dan upgrade. Apakah biaya ini sesuai dengan anggaran?
+
+        6. Risiko Dampak Lingkungan:
+        - Evaluasi dampak lingkungan dari penggunaan perangkat keras, seperti konsumsi energi atau pembuangan limbah, jika relevan dengan karya bersangkutan.
+        - Sarankan langkah-langkah untuk mengurangi dampak lingkungan, seperti penggunaan teknologi hijau atau daur ulang perangkat keras, jika relevan dengan karya bersangkutan..
+
+        Berikan analisis mendalam untuk setiap risiko yang diidentifikasi, potensi dampaknya, serta saran dan strategi mitigasi yang relevan. Tujuan dari analisis ini adalah untuk mengembangkan strategi pengelolaan risiko yang efektif dan berkelanjutan untuk implementasi karya inovasi/perbaikan perangkat lunak dan perangkat keras.
+        """
+
+    elif kategori_request == 'analisis_latar_belakang':
+        konten = f"\n"
+        instruksi = """
+        Silakan lakukan analisis terhadap bagian 'Latar Belakang' dari makalah karya inovasi berikut: [Masukkan Detail atau Ekstrak Latar Belakang Makalah Di Sini]. Dalam analisis Anda, fokuskan pada aspek-aspek berikut untuk dinilai:
+
+        1. Keterkaitan Masalah dengan Topik:
+        - Evaluasi seberapa jelas dan tepat masalah yang diidentifikasi dalam karya inovasi tersebut dikaitkan dengan topik utama.
+        - Analisis apakah latar belakang memberikan pemahaman yang cukup tentang masalah dan relevansinya dengan topik yang dibahas.
+
+        2. Konteks dan Justifikasi:
+        - Tinjau seberapa baik latar belakang menjelaskan konteks di mana inovasi tersebut dikembangkan, termasuk relevansi historis atau kontemporer.
+        - Pertimbangkan apakah latar belakang memberikan justifikasi yang kuat untuk kebutuhan inovasi tersebut.
+        - Apakah sudah memuat indeks kinerja atau Key Performance Indicator atau ukuran/indikator lain yang relevan dengan permasalahan dan tujuan pembuatan karya.
+
+        3. Kejelasan dan Struktur Narasi:
+        - Pertimbangkan seberapa jelas dan logis struktur narasi dalam latar belakang. Apakah informasi disajikan dengan cara yang mudah diikuti?
+        - Tinjau kejelasan tujuan dan sasaran dari karya inovasi seperti yang dijelaskan dalam latar belakang.
+        -  Apakah latar belakang dan maksud tujuan sudah menunjukkan hubungan yang logis. Apakah terbentuk hubungan sebab dan akibat atau analisa dampak yang masuk akal, dari karya/inovasi terhadap permasalahan yang hendak dipecahkan atau peluang yang dikejar.
+        - Apakah obyek atau karya inovasinya sudah diperkenalkan dengan cukup baik.
+
+        4. Identifikasi Gap Penelitian atau Inovasi:
+        - Analisis apakah latar belakang berhasil mengidentifikasi gap dalam penelitian atau praktik yang ada yang inovasi berusaha untuk alamat.
+        - Evaluasi apakah ada penjelasan tentang bagaimana karya inovasi ini berbeda atau lebih baik daripada solusi yang sudah ada, jika ada.
+
+        Berikan ringkasan dari evaluasi Anda tentang setiap aspek latar belakang makalah, termasuk area yang kuat serta saran untuk perbaikan atau penjelasan lebih lanjut yang mungkin diperlukan.
+        """
+
+    elif kategori_request == 'analisis_metodologi':
+        konten = f"\n"
+        instruksi = """
+        Silakan lakukan analisis dan pengkritisan terhadap pemaparan metodologi dalam makalah karya inovasi tersebut. Dalam analisis Anda, pertimbangkan aspek-aspek berikut dan sertakan saran perbaikan atau improvement:
+
+        1. Kesesuaian Metodologi:
+        - Evaluasi apakah metodologi yang dipilih sesuai dengan tujuan dan sifat karya inovasi perangkat lunak tersebut.
+        - Kritik dan saran tentang cara-cara untuk meningkatkan atau memperbaiki pemilihan dan penerapan metodologi tersebut.
+
+        2. Kejelasan dan Detail:
+        - Analisis seberapa jelas dan rinci pemaparan metodologi dalam makalah. Apakah langkah-langkah, alat, dan teknik yang digunakan dijelaskan dengan cukup?
+        - Berikan saran untuk meningkatkan kejelasan dan detail dalam pemaparan metodologi.
+
+        3. Validitas dan Keandalan:
+        - Tinjau validitas dan keandalan dari metodologi yang dijelaskan, termasuk teknik pengujian dan evaluasi yang digunakan.
+
+        4. Inovasi dalam Metodologi:
+        - Pertimbangkan apakah ada aspek inovatif atau unik dalam metodologi yang diusulkan yang membedakannya dari pendekatan lain.
+        - Sarankan cara-cara untuk lebih menonjolkan atau mengembangkan inovasi metodologis tersebut.
+
+        5. Implikasi dan Risiko:
+        - Evaluasi implikasi dan risiko yang mungkin timbul dari penerapan metodologi ini, termasuk potensi hambatan atau kesulitan.
+        - Berikan saran mitigasi risiko dan cara mengatasi potensi hambatan tersebut.
+
+        Berikan ringkasan dari evaluasi Anda tentang pemaparan metodologi dalam makalah, termasuk poin-poin kritik dan saran untuk perbaikan atau peningkatan yang dapat membantu meningkatkan kualitas dan efektivitas karya inovasi tersebut.
+
+        """
+
+    
     else:
         konten = f"Saya hendak membahas topik berikut: {inputan_abstrak}.\n"
         instruksi = "Berikan komentar kritis tentangnya"
