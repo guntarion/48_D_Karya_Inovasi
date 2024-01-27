@@ -54,7 +54,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.twitter',
-    "sslserver",
+    'sslserver',
+    'ckeditor',
+    'ckeditor_uploader',
+
+    # Apps
+    'inovasi.airequest',
+    'inovasi.makalah',
 ]
 
 MIDDLEWARE = [
@@ -144,7 +150,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 
@@ -166,7 +172,10 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 #############################################################
 #############################################################
@@ -235,4 +244,25 @@ if TWITTER_AUTH:
             'key': ''
         }
     }
-SITE_ID = 4
+SITE_ID = 5
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'extraPlugins': 'placeholder',
+        'removePlugins': 'exportpdf',
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Strike'],  
+            ['NumberedList', 'BulletedList', 'Outdent', 'Indent'],  
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],  
+            ['Link', 'Unlink', 'Anchor'],  
+            ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar'],
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],  
+            ['Maximize', 'ShowBlocks'], 
+            ['RemoveFormat', 'Source']
+        ],
+        'versionCheck': False,
+    }
+}
+

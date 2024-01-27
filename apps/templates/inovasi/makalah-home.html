@@ -1,0 +1,83 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Blog Categories {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock %}
+
+{% block body_class %} blog-categories {% endblock %}
+
+{% block content %}
+
+  {% include 'includes/navigation-transparent.html' %} 
+
+  <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
+  <header>
+    <div class="page-header min-vh-50" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/minimal-interior.jpg')">
+      <span class="mask bg-gradient-primary"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-white text-center">
+            <h2 class="text-white">Search over our Blog Posts</h2>
+            <p class="lead">A place for entrepreneurs to share and discover new Stories</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="position-relative overflow-hidden" style="height:36px;margin-top:-35px;">
+      <div class="w-full absolute bottom-0 start-0 end-0" style="transform: scale(2);transform-origin: top center;color: #fff;">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+      </div>
+    </div>
+
+  </header>
+  <!-- -------- END HEADER 4 w/ search book a ticket form ------- -->
+
+
+
+{% for makalah in makalahs %}
+  <div class="container mt-7">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-6 justify-content-center d-flex flex-column">
+            <div class="card">
+              {% comment %} <div class="d-block blur-shadow-image">
+                {% if makalah.thumbnail %}
+                  <img src="{{ makalah.thumbnail.url }}" alt="img-blur-shadow-blog-2" class="img-fluid border-radius-lg">
+                {% else %}
+                                  <!-- Display a default image or nothing -->
+                {% endif %} {% endcomment %}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
+            <h6 class="category text-primary mt-3">{{ makalah.category }}</h6>
+            <h3 class="card-title">
+              <a href="{% url 'makalah_single_view' makalah.id %}" class="text-dark">{{ makalah.judul_makalah }}</a>
+            </h3>
+            <p class="card-description">
+              {{ makalah.abstrak | truncatewords:40 | safe }}  <a href="{% url 'makalah_single_view' makalah.id %}"  class="text-darker icon-move-right text-sm">Read More
+                <i class="fas fa-arrow-right text-xs ms-1"></i>
+              </a>
+            </p>
+            <p class="author">
+              oleh <a href="javascript:;" class="ms-1"><span class="font-weight-bold text-primary"> {{ makalah.kata_kunci }}</span></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% empty %}
+  <p>No makalahs found.</p>
+{% endfor %}
+
+  {% include 'includes/footer-5.html' %}
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock %}

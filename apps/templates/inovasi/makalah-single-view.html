@@ -1,0 +1,266 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Blog Author {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+<style>
+    @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @-webkit-keyframes rotate {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      .load {
+        width: 100px;
+        height: 100px;
+        margin: 110px auto 0;
+        border: solid 10px #8822aa;
+        border-radius: 50%;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        -webkit-transition: all 0.5s ease-in;
+        -webkit-animation-name: rotate;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+
+        transition: all 0.5s ease-in;
+        animation-name: rotate;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      .paragraph-space {
+        margin-bottom: 20px;
+      }
+
+    .hrline {
+        border: none;
+        height: 2px;
+        color: #333; /* background color */
+        background-color: #333; /* same as border color */
+    }
+
+    .additional-text {
+        color: #999999; /* Change color to darker grey */
+        font-size: 12px; /* Change font size to 14px */
+        /* Add more styles as needed */
+    }
+    </style>
+{% endblock %}
+
+{% block body_class %} blog-single-makalah {% endblock %}
+
+{% block content %}
+
+  {% include 'includes/navigation-light.html' %}
+
+ 
+  <!-- -------- START HEADER 3 w/ image on background ------- -->
+  <header class="position-relative">
+    <div class="page-header min-vh-50" style="background-image: url('{% static 'assets/img/curved-images/curved14.jpg' %}');">
+      <span class="mask bg-gradient-dark opacity-6"></span>
+    </div>
+    <div class="position-absolute w-100 z-index-1 bottom-0">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="moving-waves">
+          <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+          <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+          <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+          <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+        </g>
+      </svg>
+    </div>
+  </header>
+  <!-- -------- END HEADER 3 w/ image on background ------- -->
+ 
+<div class="container py-2 mt-2">
+  <div class="row">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'makalah_home' %}">Daftar Makalah</a></li>
+        <li class="breadcrumb-item active" aria-current="page">View Makalah</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+ 
+  <!-- START Blogs w/ 3 images & quote & text -->
+  <section class="py-1 mt-5">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 ms-auto me-auto">
+          <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">{{ makalah.kategori }}</h6>
+          <h3 class="title mb-4">{{ makalah.title }}</h3>
+          <p class="text-dark">
+            {{ makalah.abstrak | safe }}
+          </p>
+          <p class="text-dark">
+            {{ makalah.klaim | safe }}
+          </p>
+          <p class="text-dark">
+            {{ makalah.latar_belakang | safe }}
+          </p>
+          <p class="text-dark">
+            {{ makalah.maksud_tujuan | safe }}
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-8 ms-auto me-auto">
+            <a href="{% url 'makalah_edit' makalah.id %}" class="btn bg-gradient-default">Edit</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- END Blogs w/ 3 images & quote & text -->
+
+    <section class="py-1 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ms-auto me-auto">
+            <select class="form-contro" aria-label="Pilihan Analisis AI">
+              <option selected>Pilih Jenis Analisis oleh AI</option>
+              <option value="pertanyaan">Ajukan Pertanyaan</option>
+              <option value="kritikan">Kritikan</option>
+              <option value="saran_pengembangan">Saran Pengembangan</option>
+              <option value="catatan_kritis">Catatan Kritis</option>
+              <option value="ide_manfaat_inovasi">Ide Manfaat Inovasi</option>
+              <option value="ide_risiko_inovasi">Ide Risiko Inovasi</option>
+              <option value="ide_risiko_inovasi_softwarefull">Ide Risiko Inovasi Software Full</option>
+              <option value="ide_risiko_inovasi_softwarealat">Ide Risiko Inovasi Software dengan Alat</option>
+              <option value="analisis_latar_belakang">Analisis Latar Belakang</option>
+              <option value="analisis_metodologi">Analisis Metodologi</option>
+            </select>
+          </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-8 ms-auto me-auto">
+              <button id="generateOpenAIcontent" type="button" class="btn bg-gradient-primary w-100">Generate</button>
+            </div>
+          </div>
+
+        <div class="row">
+            <!-- section for loading circle -->
+            <div style="display: none" id="loading-circle" class="load"></div>
+        </div>
+          <div class="row">
+            <div class="col-lg-8">
+                <textarea id="outputOpenAI" placeholder="" class="form-control" rows="10"></textarea>
+            </div>
+        </div>
+
+        <br>
+        <hr class="hrline">
+        <br>  
+
+        </div>
+      </div>
+
+    </section>
+
+  
+
+
+  {% include 'includes/footer.html' %}
+
+{% endblock content %}
+  
+{% block javascripts %}
+
+  <script>
+    if (document.getElementsByClassName('page-header')) {
+      window.addEventListener('scroll', function() {
+        var scrollPosition = window.pageYOffset;
+        var bgParallax = document.querySelector('.page-header');
+        var limit = bgParallax.offsetTop + bgParallax.offsetHeight;
+        if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit) {
+          bgParallax.style.backgroundPositionY = (50 - 10 * scrollPosition / limit * 3) + '%';
+        } else {
+          bgParallax.style.backgroundPositionY = '50%';
+        }
+      });
+    }
+
+    document
+    .getElementById("generateOpenAIcontent")
+    .addEventListener("click", async () => {
+        const inputanUser = document.getElementById("inputanUser").value;
+        const inputanTambahan = document.getElementById("inputanTambahan").value;
+        var ketegoriMasak = document.getElementById('masak-ide-selection').value;
+        var historyOutput = document.getElementById('history-output');
+
+        if (inputanUser) {
+            document.getElementById("loading-circle").style.display = "block";
+
+            const endpointUrl = "/airequest/masak-ide/";
+
+            try {
+                const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                const response = await fetch(endpointUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                         "X-CSRFToken": csrftoken
+                    },
+                    body: JSON.stringify({ 
+                      dataInput: inputanUser,
+                      dataTambahan: inputanTambahan,
+                      kategoriMasak: ketegoriMasak
+                    }),
+                });
+
+                const data = await response.json();
+                const jawaban = data.generated_idea;
+                historyOutput.value += '\n---\n' + jawaban;
+
+                document.getElementById('outputOpenAI').value = jawaban;
+
+               // document.getElementById('id_narasi_konten').value = data.generated_idea;
+
+               
+            } catch (error) {
+                console.error("Error occurred:", error);
+                alert("Mohon maaf, ada yang salah. Please try again later.");
+            }
+            document.getElementById("loading-circle").style.display = "none";
+        } else {
+            alert("Harap masukkan konten.");
+        }
+    });
+
+  </script>
+
+{% endblock %}

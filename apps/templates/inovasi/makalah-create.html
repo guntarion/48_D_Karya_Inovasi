@@ -1,0 +1,377 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Blog Author {% endblock %} 
+
+
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock %}
+
+{% block body_class %} blog-single-article {% endblock %}
+
+
+
+{% block content %}
+
+<div class="container py-6 mt-2">
+  <div class="row">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'makalah_home' %}">Makalah</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create Makalah</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+ {{ form.media }} 
+
+ 
+
+<section>
+    <div class="container-fluid py-4">
+      <div class="row">
+      <div class="col-lg-12 mx-auto d-flex justify-content-center flex-column">
+        <h3 class="text-center">Create Makalah</h3>
+        <form role="form" id="article-form" method="post" autocomplete="off" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-body">
+
+         
+            <div class="row">
+              <div class="col-md-2">
+                <label>judul_makalah</label>
+              </div>
+              <div class="col-md-10">
+                <div class="input-group mb-4">
+                  {{ form.judul_makalah }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
+                <label>Kategori</label>
+              </div>
+              <div class="col-md-10">
+                <div class="input-group">
+                  {{ form.kategori }}
+                </div>
+              </div>
+            </div>
+            
+       <div class="row">
+    <div class="col-md-1">
+    </div>
+   
+    <div class="col-md-2">
+        <div class="form-check mb-1">
+            <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="abstrak">
+            <label class="custom-control-label" for="abstrak">Abstrak</label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-check mb-1">
+            <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="analisis_masalah">
+            <label class="custom-control-label" for="analisis_masalah">Analisis Masalah</label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-check mb-1">
+            <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="evaluasi_implementasi">
+            <label class="custom-control-label" for="evaluasi_implementasi">Evaluasi Implementasi</label>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="klaim">
+                <label class="custom-control-label" for="klaim">Klaim</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="metodologi">
+                <label class="custom-control-label" for="metodologi">Metodologi</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="manfaat_finansial">
+                <label class="custom-control-label" for="manfaat_finansial">Manfaat Finansial</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="latarbelakang">
+                <label class="custom-control-label" for="latarbelakang">Latar Belakang</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="desain_inovasi">
+                <label class="custom-control-label" for="desain_inovasi">Desain Inovasi</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="manfaat_non_finansial">
+                <label class="custom-control-label" for="manfaat_non_finansial">Manfaat Non Finansial</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="maksud_tujuan">
+                <label class="custom-control-label" for="maksud_tujuan">Maksud dan Tujuan</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="implementasi">
+                <label class="custom-control-label" for="implementasi">Implementasi</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="daftar_pustaka">
+                <label class="custom-control-label" for="daftar_pustaka">Daftar Pustaka</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-2">
+            <div class="form-check mb-1">
+                <input class="form-check-input" type="radio" name="radioButtonMakalahCreate" id="identifikasi_masalah">
+                <label class="custom-control-label" for="identifikasi_masalah">Identifikasi Masalah</label>
+            </div>
+        </div>
+    </div>
+
+
+
+            <div id="div_abstrak" style="display: none;">
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Abstrak</label>
+                </div>
+                <div class="col-md-10">
+                  <div class="form-group mb-4">
+                    {{ form.abstrak }}
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="div_klaim" style="display: none;">
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Klaim</label>
+                </div>
+                <div class="col-md-10">
+                  <div class="form-group mb-4">
+                    {{ form.klaim }}
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="div_latarbelakang" style="display: none;">
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Latar Belakang</label>
+                </div>
+                <div class="col-md-10">
+                  <div class="form-group mb-7">
+                    {{ form.latar_belakang }}
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="div_maksud_tujuan" style="display: none;">
+              <div class="row">
+                  <div class="col-md-2">
+                      <label>Maksud_tujuan</label>
+                  </div>
+                  <div class="col-md-10">
+                      <div class="form-group mb-4">
+                          {{ form.maksud_tujuan }}
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div id="div_identifikasi_masalah" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Identifikasi_masalah</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.identifikasi_masalah }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_analisis_masalah" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Analisis_masalah</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.analisis_masalah }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_metodologi" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Metodologi</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.metodologi }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_desain_inovasi" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Desain_inovasi</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.desain_inovasi }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_implementasi" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Implementasi</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.implementasi }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_evaluasi_implementasi" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Evaluasi_implementasi</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.evaluasi_implementasi }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_manfaat_finansial" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Manfaat_finansial</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.manfaat_finansial }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_manfaat_non_finansial" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Manfaat_non_finansial</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.manfaat_non_finansial }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_daftar_pustaka" style="display: none;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Daftar_pustaka</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group mb-4">
+                            {{ form.daftar_pustaka }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <button type="submit" class="btn bg-gradient-dark w-100">Create/Edit Makalah</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  
+
+
+
+  {% include 'includes/footer.html' %}
+
+{% endblock content %}
+  
+{% block javascripts %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('input[type=radio][name=radioButtonMakalahCreate]').change(function() {
+        // Hide all divs
+        $('#div_abstrak').hide();
+        $('#div_klaim').hide();
+        $('#div_latarbelakang').hide();
+        $('#div_maksud_tujuan').hide();
+        $('#div_identifikasi_masalah').hide();
+        $('#div_analisis_masalah').hide();
+        $('#div_metodologi').hide();
+        $('#div_desain_inovasi').hide();
+        $('#div_implementasi').hide();
+        $('#div_evaluasi_implementasi').hide();
+        $('#div_manfaat_finansial').hide();
+        $('#div_manfaat_non_finansial').hide();
+        $('#div_daftar_pustaka').hide();
+        // Show the div corresponding to the selected radio button
+        $('#div_' + this.id).show();
+    });
+});
+</script>
+
+
+
+
+{% endblock %}

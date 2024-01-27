@@ -13,6 +13,8 @@ urlpatterns = [
     path("", include("apps.authentication.urls")), # Auth routes - login / register
 
     # ADD NEW Routes HERE
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('makalah/', include('inovasi.makalah.urls')),
 
     # Leave `Home.Urls` as last the last line
     path("", include("apps.home.urls"))
