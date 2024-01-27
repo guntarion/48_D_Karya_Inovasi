@@ -37,21 +37,18 @@ class Makalah(TimeStampedModel):
     manfaat_non_finansial = models.TextField(blank=True, null=True)
     daftar_pustaka = models.TextField(blank=True, null=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
-    
+
     note_pertanyaan = models.TextField(blank=True, null=True)
-    note_latar_belakang = models.TextField(blank=True, null=True)
-    note_manfaat_inovasi = models.TextField(blank=True, null=True)
-    note_risiko_fullsoftware = models.TextField(blank=True, null=True)
-    note_risiko_software_alat = models.TextField(blank=True, null=True)
-    note_metodologi = models.TextField(blank=True, null=True)
-    note_kriteria_latar_belakang = models.TextField(blank=True, null=True)
-    note_kriteria_metodologi = models.TextField(blank=True, null=True)
-    note_penerapan_inovasi = models.TextField(blank=True, null=True)
-    note_evaluasi_hasil = models.TextField(blank=True, null=True)
-    note_kontribusi_manfaat = models.TextField(blank=True, null=True)
-    note_keunggulan_inovasi = models.TextField(blank=True, null=True)
-    note_pengembangan = models.TextField(blank=True, null=True)
-    note_kemudahan_implementasi = models.TextField(blank=True, null=True)
+    note_kritikan = models.TextField(blank=True, null=True)
+    note_saran_pengembangan = models.TextField(blank=True, null=True)
+    note_catatan_kritis_umum = models.TextField(blank=True, null=True)
+    note_catatan_kritis_aplikasi = models.TextField(blank=True, null=True)
+    note_ide_manfaat_inovasi = models.TextField(blank=True, null=True)
+    note_ide_risiko_inovasi = models.TextField(blank=True, null=True)
+    note_ide_risiko_inovasi_softwarefull = models.TextField(blank=True, null=True)
+    note_ide_risiko_inovasi_softwarealat = models.TextField(blank=True, null=True)
+    note_analisis_latar_belakang = models.TextField(blank=True, null=True)
+    note_analisis_metodologi = models.TextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

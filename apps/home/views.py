@@ -20,7 +20,7 @@ import mimetypes
 def index(request):
     context = {'segment': 'index'}
 
-    html_template = loader.get_template('home/index.html')
+    html_template = loader.get_template('inovasi/index.html')
     return HttpResponse(html_template.render(context, request))
 
 

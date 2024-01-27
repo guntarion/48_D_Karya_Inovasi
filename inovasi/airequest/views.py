@@ -9,7 +9,6 @@ from inovasi.makalah.models import Makalah
 import json
 import openai
 import os
-import re
 
 
 @csrf_exempt
@@ -35,7 +34,7 @@ def openai_request(request):
             inputan_daftar_pustaka = data['data_daftar_pustaka']
             inputan_kategori_request = data['kategori_request']
 
-            profiling = "Anda adalah software developer senior yang memiliki kepakaran di bidang pembangkitan listrik. Anda sangat paham bagaimana cara kerja pembangkit listrik, proses bisnis terkait, termasuk sisi non teknikal dari perusahaan pembangkit listrik. Bantu saya mengevaluasi karya inovasi di bidang pembuatan perangkat lunak. Anda sangat suka memberi masukan yang mencerahkan. Berikan respons dalam bentuk daftar berformat markdown, tidak menyertakan pembukaan atau penutupan, tidak menambahkan komentar tambahan di akhir. Format harus dalam format html plain text, dengan tags HTML sederhana untuk membuat ordered list. Gunakan cetak tebal dan italic untuk memberi penekanan, hanya jika diperlukan."
+            profiling = "Anda adalah software developer senior yang memiliki kepakaran di bidang pembangkitan listrik. Anda sangat paham bagaimana cara kerja pembangkit listrik, proses bisnis terkait, termasuk sisi non teknikal dari perusahaan pembangkit listrik. Bantu saya mengevaluasi karya inovasi di bidang pembuatan perangkat lunak. Anda sangat suka memberi masukan yang mencerahkan. Berikan respons dalam bentuk daftar berformat markdown, tidak menyertakan pembukaan atau penutupan, tidak menambahkan komentar tambahan di akhir. Format harus dalam format html plain text, dengan tags HTML sederhana <ol> <li>[respon]</li> </ol> untuk membuat ordered list."
             narasi_prompt = get_prompt_analisis_makalah(
                 inputan_kategori_request, inputan_judul_makalah, inputan_abstrak, inputan_klaim, inputan_latar_belakang, inputan_maksud_tujuan, inputan_identifikasi_masalah, inputan_analisis_masalah, inputan_metodologi, inputan_desain_inovasi, inputan_implementasi, inputan_evaluasi_implementasi, inputan_manfaat_finansial, inputan_manfaat_non_finansial, inputan_daftar_pustaka)
 
@@ -70,27 +69,60 @@ def openai_request(request):
 
             makalah_instance = Makalah.objects.get(pk=id_makalah)
             if inputan_kategori_request == 'pertanyaan':
-
-                # # Remove numbers at the start of each item
-                # completion_message = re.sub(r'\d+\.\s', '', completion_message)
-
-                # # Split items based on '? '
-                # completion_message_items = completion_message.split('? ')
-
-                # # Add back the question mark at the end of each item, except for the last one
-                # completion_message_items = [f'{item}?' for item in completion_message_items[:-1]] + [completion_message_items[-1]]
-
-                # # Format as an HTML list
-                # completion_message_items = [f'<li>{item}</li>' for item in completion_message_items if item]
-                # completion_message_html = f'<ul>{" ".join(completion_message_items)}</ul>'
-
                 if makalah_instance.note_pertanyaan is None:
                     makalah_instance.note_pertanyaan = completion_message
                 else:
                     makalah_instance.note_pertanyaan += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'kritikan':
+                if makalah_instance.note_kritikan is None:
+                    makalah_instance.note_kritikan = completion_message
+                else:
+                    makalah_instance.note_kritikan += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'saran_pengembangan':
+                if makalah_instance.note_saran_pengembangan is None:
+                    makalah_instance.note_saran_pengembangan = completion_message
+                else:
+                    makalah_instance.note_saran_pengembangan += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'catatan_kritis_umum':
+                if makalah_instance.note_catatan_kritis_umum is None:
+                    makalah_instance.note_catatan_kritis_umum = completion_message
+                else:
+                    makalah_instance.note_catatan_kritis_umum += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'catatan_kritis_aplikasi':
+                if makalah_instance.note_catatan_kritis_aplikasi is None:
+                    makalah_instance.note_catatan_kritis_aplikasi = completion_message
+                else:
+                    makalah_instance.note_catatan_kritis_aplikasi += "\n----------\n" + completion_message
             elif inputan_kategori_request == 'ide_manfaat_inovasi':
-                makalah_instance.note_manfaat_inovasi = completion_message
-
+                if makalah_instance.note_ide_manfaat_inovasi is None:
+                    makalah_instance.note_ide_manfaat_inovasi = completion_message
+                else:
+                    makalah_instance.note_ide_manfaat_inovasi += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'ide_risiko_inovasi':
+                if makalah_instance.note_ide_risiko_inovasi is None:
+                    makalah_instance.note_ide_risiko_inovasi = completion_message
+                else:
+                    makalah_instance.note_ide_risiko_inovasi += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'ide_risiko_inovasi_softwarefull':
+                if makalah_instance.note_ide_risiko_inovasi_softwarefull is None:
+                    makalah_instance.note_ide_risiko_inovasi_softwarefull = completion_message
+                else:
+                    makalah_instance.note_ide_risiko_inovasi_softwarefull += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'ide_risiko_inovasi_softwarealat':
+                if makalah_instance.note_ide_risiko_inovasi_softwarealat is None:
+                    makalah_instance.note_ide_risiko_inovasi_softwarealat = completion_message
+                else:
+                    makalah_instance.note_ide_risiko_inovasi_softwarealat += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'analisis_latar_belakang':
+                if makalah_instance.note_analisis_latar_belakang is None:
+                    makalah_instance.note_analisis_latar_belakang = completion_message
+                else:
+                    makalah_instance.note_analisis_latar_belakang += "\n----------\n" + completion_message
+            elif inputan_kategori_request == 'analisis_metodologi':
+                if makalah_instance.note_analisis_metodologi is None:
+                    makalah_instance.note_analisis_metodologi = completion_message
+                else:
+                    makalah_instance.note_analisis_metodologi += "\n----------\n" + completion_message
             makalah_instance.save()
 
             return JsonResponse({'generated_idea': completion_message}, status=200)

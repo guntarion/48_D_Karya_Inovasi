@@ -6,29 +6,27 @@ def get_prompt_analisis_makalah(kategori_request, inputan_judul_makalah, inputan
         konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}.\n"
         instruksi = """
         Berdasarkan seluruh informasi tersebut, buatkan 2 pertanyaan untuk perihal yang sifatnya menguji, perihal yang tampaknya salah atau aneh, ada logika yang aneh atau tidak tepat, adanya ketidaksingkronan atau inkonsistensi informasi. Berikan pertanyaan yang sulit dan tidak mudah dijawab.
-
-
         """
 
     elif kategori_request == 'kritikan':
-        konten = f"\n"
-        instruksi = f"Jadilah orang yang bersikap sangat skeptis, negatif dan pesimis terhadap karya inovasinya. Cari segala bentuk kelemahan dan alasan dan pertimbangan yang menunjukkan bahwa karya bersangkutan tidak pantas disebut inovasi, dan/atau dibangun dengan dasar atau justifikasi yang tidak kuat, dan/atau tidak memiliki keunggulan dan manfaat yang patut dibanggakan, dan/atau susah untuk diimplementasikan, dan/atau tidak menarik bagi pihak manapun untuk mengadopsinya. Apapun alasannya, Anda harus menggunakan argumen yang meyakinkan dan susah untuk dibantah.\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}, berikut adalah [manfaat inovasi] = {inputan_manfaat_finansial} dan {inputan_manfaat_non_finansial}.\n"
+        instruksi = f"Jadilah orang yang bersikap sangat skeptis, negatif dan pesimis terhadap karya inovasinya. Cari dan sampaikan dua atau tiga poin tentang segala bentuk kelemahan, alasan, dan pertimbangan --dinyatakan dengan argumen valid dan kuat-- yang menunjukkan bahwa karya bersangkutan tidak pantas disebut inovasi, dan/atau dibangun dengan dasar atau justifikasi yang tidak kuat, dan/atau tidak memiliki keunggulan dan manfaat yang patut dibanggakan, dan/atau susah untuk diimplementasikan, dan/atau tidak menarik bagi pihak manapun untuk mengadopsinya.\n"
 
     elif kategori_request == 'saran_pengembangan':
-        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}.\n"
-        instruksi = f"Sebatas dari informasi yang tersampaikan di makalah, buatkan rekomendasi atau usulan berikut konsideran atau alasannya, tentang bagaimana bentuk perbaikan atau penyempurnaan atau pengembangan lebih lanjut dari karya inovasi bersangkutan. Anda bisa mendasarkan pada potensi kelemahan dari karyanya, atau peningkatan dari apa yang sudah baik.\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}, berikut adalah [manfaat inovasi] = {inputan_manfaat_finansial} dan {inputan_manfaat_non_finansial}.\n"
+        instruksi = f"Sebatas dari informasi yang tersampaikan di makalah, buatkan dua atau tiga rekomendasi atau usulan berikut konsideran atau alasannya, tentang bagaimana bentuk perbaikan atau penyempurnaan atau pengembangan lebih lanjut dari karya inovasi bersangkutan. Anda bisa mendasarkan pada potensi kelemahan dari karyanya, atau peningkatan dari apa yang sudah baik.\n"
 
     elif kategori_request == 'catatan_kritis_umum':
-        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}.\n"
-        instruksi = f"Berdasarkan informasi tersebut, berikan remarks atau komentar atau catatan yang berbobot. Tunjukkan bahwa Anda adalah orang yang sangat berpengalaman di bidang pembangkitan listrik dan manajerial. Tidak perlu ragu menggunakan istilah yang sulit atau teknis dan sophisticated.\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}, berikut adalah [manfaat inovasi] = {inputan_manfaat_finansial} dan {inputan_manfaat_non_finansial}.\n"
+        instruksi = f"Berdasarkan informasi tersebut, berikan dua atau tiga remarks atau komentar atau catatan yang berbobot. Tunjukkan bahwa Anda adalah orang yang sangat berpengalaman di bidang pembangkitan listrik dan manajerial. Tidak perlu ragu menggunakan istilah yang sulit atau teknis dan sophisticated.\n"
 
 
     elif kategori_request == 'catatan_kritis_aplikasi':
-        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}.\n"
-        instruksi = f"Berdasarkan informasi tersebut, berikan remarks atau komentar atau catatan atau pertanyaan terkait apapun dari sisi teknologi yang diulas. Ini bisa melingkupi apa saja, bisa dari tampilan, algoritma yang dipilih, arsitektur, framework, cara perangkat lunaknya dibangun, pilihan bahasa pemrograman, user acceptance test, apapun. Tunjukkan bahwa Anda adalah orang yang sangat berpengalaman di bidang teknologi. Tidak perlu ragu menggunakan istilah yang sulit atau teknis dan sophisticated. Untuk ini, Anda juga bisa membandingkan atau menyebut padanan atau perihal atau studi kasus di tempat lain yang bisa dikaitkan dengan konteks karya inovasi bersangkutan dari sisi teknologi; untuk menunjukkan bahwa Anda adalah orang yang sangat berwawasan.\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}, berikut adalah [manfaat inovasi] = {inputan_manfaat_finansial} dan {inputan_manfaat_non_finansial}.\n"
+        instruksi = f"Berdasarkan informasi tersebut, berikan dua atau tiga remarks atau komentar atau catatan atau pertanyaan terkait apapun dari sisi teknologi yang diulas. Ini bisa melingkupi apa saja, bisa dari tampilan, algoritma yang dipilih, arsitektur, framework, cara perangkat lunaknya dibangun, pilihan bahasa pemrograman, user acceptance test, apapun. Tunjukkan bahwa Anda adalah orang yang sangat berpengalaman di bidang teknologi. Tidak perlu ragu menggunakan istilah yang sulit atau teknis dan sophisticated. Untuk ini, Anda juga bisa membandingkan atau menyebut padanan atau perihal atau studi kasus di tempat lain yang bisa dikaitkan dengan konteks karya inovasi bersangkutan dari sisi teknologi; untuk menunjukkan bahwa Anda adalah orang yang sangat berwawasan.\n"
 
     elif kategori_request == 'ide_manfaat_inovasi':
-        konten = f"\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}, berikut adalah [manfaat inovasi] = {inputan_manfaat_finansial} dan {inputan_manfaat_non_finansial}.\n"
         instruksi = """
         Berdasarkan informasi tersebut, silakan identifikasi dan analisis manfaat yang ditimbulkan dari karya inovasi bersangkutan. Fokuskan pada dua aspek utama, yaitu Manfaat Finansial dan Manfaat Non-Finansial, dengan mempertimbangkan manfaat langsung maupun tidak langsung:
 
@@ -52,7 +50,7 @@ def get_prompt_analisis_makalah(kategori_request, inputan_judul_makalah, inputan
         instruksi = f"\n"
 
     elif kategori_request == 'ide_risiko_inovasi_softwarefull':
-        konten = f"\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}.\n"
         instruksi = """
         Berdasarkan informasi tersebut, silakan lakukan identifikasi dan analisis risiko, dengan menyertakan antisipasi dan masukan upaya untuk mengecilkan tingkat risikonya,  dengan fokus pada aspek-aspek berikut:
 
@@ -73,7 +71,7 @@ def get_prompt_analisis_makalah(kategori_request, inputan_judul_makalah, inputan
         """
 
     elif kategori_request == 'ide_risiko_inovasi_softwarealat':
-        konten = f"\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}, berikut adalah [desain inovasi] = {inputan_desain_inovasi}, berikut adalah [implementasi] nya = {inputan_implementasi}.\n"
         instruksi = """
         Silakan lakukan identifikasi dan analisis risiko dari karya improvement atau karya inovasi berbentuk perangkat lunak yang melibatkan penggunaan alat, peralatan, atau perangkat keras tersebut. Dalam analisis Anda, pertimbangkan aspek-aspek berikut dan sertakan saran serta strategi mitigasi:
 
@@ -108,9 +106,9 @@ def get_prompt_analisis_makalah(kategori_request, inputan_judul_makalah, inputan
         """
 
     elif kategori_request == 'analisis_latar_belakang':
-        konten = f"\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [maksud dan tujuan] = {inputan_maksud_tujuan}.\n"
         instruksi = """
-        Silakan lakukan analisis terhadap bagian 'Latar Belakang' dari makalah karya inovasi berikut: [Masukkan Detail atau Ekstrak Latar Belakang Makalah Di Sini]. Dalam analisis Anda, fokuskan pada aspek-aspek berikut untuk dinilai:
+        Silakan lakukan analisis terhadap bagian [latar belakang] dari makalah karya inovasi tersebut, dengan memahami konteks berdasarkan informasi lain yang disampaikan. Dalam analisis Anda, fokuskan pada aspek-aspek berikut untuk dinilai:
 
         1. Keterkaitan Masalah dengan Topik:
         - Evaluasi seberapa jelas dan tepat masalah yang diidentifikasi dalam karya inovasi tersebut dikaitkan dengan topik utama.
@@ -135,22 +133,22 @@ def get_prompt_analisis_makalah(kategori_request, inputan_judul_makalah, inputan
         """
 
     elif kategori_request == 'analisis_metodologi':
-        konten = f"\n"
+        konten = f"Dari makalah pembuatan karya inovasi berjudul '{inputan_judul_makalah}', berikut adalah [abstrak] = {inputan_abstrak}, berikut adalah [latar belakang] = {inputan_latar_belakang}, berikut adalah [metodologi] = {inputan_metodologi}.\n"
         instruksi = """
-        Silakan lakukan analisis dan pengkritisan terhadap pemaparan metodologi dalam makalah karya inovasi tersebut. Dalam analisis Anda, pertimbangkan aspek-aspek berikut dan sertakan saran perbaikan atau improvement:
+        Silakan lakukan analisis dan pengkritisan terhadap pemaparan [metodologi] dalam makalah karya inovasi tersebut. Dalam analisis Anda, pertimbangkan aspek-aspek berikut dan sertakan saran perbaikan atau improvement:
 
-        1. Kesesuaian Metodologi:
+        1. Kesesuaian [metodologi]:
         - Evaluasi apakah metodologi yang dipilih sesuai dengan tujuan dan sifat karya inovasi perangkat lunak tersebut.
         - Kritik dan saran tentang cara-cara untuk meningkatkan atau memperbaiki pemilihan dan penerapan metodologi tersebut.
 
         2. Kejelasan dan Detail:
-        - Analisis seberapa jelas dan rinci pemaparan metodologi dalam makalah. Apakah langkah-langkah, alat, dan teknik yang digunakan dijelaskan dengan cukup?
-        - Berikan saran untuk meningkatkan kejelasan dan detail dalam pemaparan metodologi.
+        - Analisis seberapa jelas dan rinci pemaparan [metodologi] dalam makalah. Apakah langkah-langkah, alat, dan teknik yang digunakan dijelaskan dengan cukup?
+        - Berikan saran untuk meningkatkan kejelasan dan detail dalam pemaparan [metodologi].
 
         3. Validitas dan Keandalan:
-        - Tinjau validitas dan keandalan dari metodologi yang dijelaskan, termasuk teknik pengujian dan evaluasi yang digunakan.
+        - Tinjau validitas dan keandalan dari [metodologi] yang dijelaskan, termasuk teknik pengujian dan evaluasi yang digunakan.
 
-        4. Inovasi dalam Metodologi:
+        4. Inovasi dalam [metodologi]:
         - Pertimbangkan apakah ada aspek inovatif atau unik dalam metodologi yang diusulkan yang membedakannya dari pendekatan lain.
         - Sarankan cara-cara untuk lebih menonjolkan atau mengembangkan inovasi metodologis tersebut.
 
