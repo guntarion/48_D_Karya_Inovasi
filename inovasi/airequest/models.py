@@ -14,6 +14,7 @@ KATEGORI_UMUM_CHOICES = [
     ('ide_risiko_inovasi_softwarealat', 'Ide Risiko Inovasi Software dengan Alat'),
     ('analisis_latar_belakang', 'Analisis Latar Belakang'),
     ('analisis_metodologi', 'Analisis Metodologi'),
+    ('analisis_metodologi', 'Analisis Metodologi'),
 ]
 
 

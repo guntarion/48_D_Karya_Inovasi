@@ -160,6 +160,26 @@ def get_prompt_analisis_makalah(kategori_request, inputan_judul_makalah, inputan
 
         """
 
+    elif kategori_request == 'skoring_latar_belakang':
+        konten = f"\n"
+        instruksi = """
+
+        Dari informasi yang ada, lakukan penilaian terkait 'Relevansi Latar Belakang Masalah/Akar Permasalahan Terhadap Penyelesaian Masalah', atas aspek berikut:
+        1. Seberapa baik ide inovasi mengidentifikasi masalah nyata yang dihadapi; pemahaman yang mendalam tentang masalah tersebut, termasuk aspek-aspek seperti sebab, dampak, dan konteks di mana masalah itu terjadi.
+        2. Menilai seberapa relevan ide inovasi dengan kebutuhan atau tantangan aktual yang dihadapi oleh perusahaan atau industri. Ide inovasi harus berakar pada kebutuhan nyata, bukan hanya pada teori atau spekulasi.
+        3. Apakah inovasi didasarkfan pada analisis yang mendalam tentang akar permasalahan. Termasuk memahami berbagai faktor yang berkontribusi pada masalah dan bagaimana inovasi dapat mengatasinya.
+
+        Berikan skor dengan menggunakan ini sebagai acuan penilaian:
+
+        - Skor 41-50: Predikat Rendah. Indikator: Bilamana ide inovasi menunjukkan pemahaman yang sangat terbatas tentang masalah. Analisis masalah dangkal dan kurang terkait dengan solusi yang diusulkan.
+        - Skor 51-60. Predikat Cukup. Indikator: Identifikasi masalah yang cukup, tetapi analisisnya tidak terlalu mendalam atau tidak sepenuhnya relevan dengan solusi yang diusulkan. Pemahaman tentang akar masalah dan relevansinya dengan solusi cukup.
+        - Skor 61-70. Predikat Memadai. Indikator: Identifikasi dan analisis masalah yang memadai. Ide inovasi berhubungan dengan masalah yang relevan, meskipun masih ada ruang untuk peningkatan dalam pemahaman atau analisis yang lebih mendalam.
+        - Skor 71-80. Predikat Baik. Indikator: Pemahaman yang baik tentang masalah dan analisis yang relevan. Ide inovasi terhubung dengan baik dengan masalah yang diidentifikasi dan menunjukkan potensi solusi yang efektif.
+        - Skor 81-90. Predikat Sangat Baik. Indikator: Analisis masalah yang sangat baik dan relevan. Ide inovasi menunjukkan pemahaman yang mendalam tentang masalah dan akar permasalahannya, dengan solusi yang sangat terkait dan berpotensi efektif.
+        - Skor 91-100. Predikat Luar Biasa. Indikator: Pemahaman yang luar biasa tentang masalah dan akar permasalahannya. Analisis yang sangat mendalam dan terperinci, dengan ide inovasi yang sangat relevan dan menawarkan solusi yang sangat potensial dan inovatif.
+
+        Respon Anda berupa angka skoring dalam rentang 41 sampai dengan 100, dengan menyertakan alasan dan pertimbangan berdasarkan isi makalah.
+        """
     
     else:
         konten = f"Saya hendak membahas topik berikut: {inputan_abstrak}.\n"
