@@ -102,10 +102,6 @@
 <!-- START Blogs w/ 3 images & quote & text -->
 <section class="py-1 mt-5">
     <div class="container">
-
-
-
-
         <div class="row">
             <div class="col-lg-8 ms-auto me-auto">
                 <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">{{ makalah.kategori }}</h6>
@@ -342,18 +338,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 ms-auto me-auto">
-                <a href="{% url 'makalah_edit' makalah.id %}" class="btn bg-gradient-default">Edit</a>
-            </div>
-        </div>
-    </div>
-
 </section>
-
-  
-
 <!-- END Blogs w/ 3 images & quote & text -->
 <section class="py-1 mt-5">
     <div class="container">
@@ -397,152 +382,176 @@
             </div>
         </div>
         <hr class="hrline">
+        <div id="div_note_pertanyaan">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Pertanyaan</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_pertanyaan" class="text-dark"> {{ makalah.note_pertanyaan | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_kritikan">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Kritikan</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_kritikan" class="text-dark"> {{ makalah.note_kritikan | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_saran_pengembangan">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Saran Pengembangan</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_saran_pengembangan" class="text-dark"> {{ makalah.note_saran_pengembangan | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_catatan_kritis_umum">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Catatan kritis umum</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_catatan_kritis_umum" class="text-dark"> {{ makalah.note_catatan_kritis_umum | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_catatan_kritis_aplikasi">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Catatan kritis aplikasi</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_catatan_kritis_aplikasi" class="text-dark"> {{ makalah.note_catatan_kritis_aplikasi | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_ide_manfaat_inovasi">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Ide manfaat inovasi</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_ide_manfaat_inovasi" class="text-dark"> {{ makalah.note_ide_manfaat_inovasi | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_ide_risiko_inovasi">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Ide risiko inovasi</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_ide_risiko_inovasi" class="text-dark"> {{ makalah.note_ide_risiko_inovasi | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_ide_risiko_inovasi_softwarefull">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Ide risiko inovasi software full</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_ide_risiko_inovasi_softwarefull" class="text-dark"> {{ makalah.note_ide_risiko_inovasi_softwarefull | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_ide_risiko_inovasi_softwarealat">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Ide risiko inovasi software dg alat</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_ide_risiko_inovasi_softwarealat" class="text-dark"> {{ makalah.note_ide_risiko_inovasi_softwarealat | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_analisis_latar_belakang">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Analisis latar belakang</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_analisis_latar_belakang" class="text-dark"> {{ makalah.note_analisis_latar_belakang | safe }} </p>
+                </div>
+            </div>
+        </div>
+        <div id="div_note_analisis_metodologi">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Note Analisis metodologi</label>
+                </div>
+                <div class="col-md-10">
+                    <p id="id_note_analisis_metodologi" class="text-dark"> {{ makalah.note_analisis_metodologi | safe }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form_masukan.isi_masukan.id_for_label }}">{{ form_masukan.isi_masukan.label }}</label>
+        {{ form_masukan.isi_masukan }}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Masukan saya</button>
+</form>
 
 
+<div class="row">
+
+<div class="col-md-4">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn bg-gradient-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalMessage">
+      Message Modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New message to @CT</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
                 <form method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                         <div class="row">
-                            <label for="{{ form_masukan.judul_masukan.id_for_label }}">{{ form_masukan.judul_masukan.label }}</label>
-                            {{ form_masukan.judul_masukan }}
-                        </div>
-                        <div class="row">
-                            <label for="{{ form_masukan.isi_masukan.id_for_label }}">{{ form_masukan.isi_masukan.label }}</label>
-                            {{ form_masukan.isi_masukan }}
-                        </div>
+                        <label for="{{ form_masukan.isi_masukan.id_for_label }}">{{ form_masukan.isi_masukan.label }}</label>
+                        {{ form_masukan.isi_masukan }}
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Masukan saya</button>
                 </form>
-    
-        
 
- 
-
-          <div id="div_note_pertanyaan">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Pertanyaan</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_pertanyaan" class="text-dark"> {{ makalah.note_pertanyaan | safe }} </p>
-                  </div>
-              </div>
           </div>
-          <div id="div_note_kritikan">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Kritikan</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_kritikan" class="text-dark"> {{ makalah.note_kritikan | safe }} </p>
-                  </div>
-              </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn bg-gradient-primary">Send message</button>
           </div>
-          <div id="div_note_saran_pengembangan">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Saran Pengembangan</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_saran_pengembangan" class="text-dark"> {{ makalah.note_saran_pengembangan | safe }} </p>
-                  </div>
-              </div>
-          </div>
-          <div id="div_note_catatan_kritis_umum">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Catatan kritis umum</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_catatan_kritis_umum" class="text-dark"> {{ makalah.note_catatan_kritis_umum | safe }} </p>
-                  </div>
-              </div>
-          </div>
-          <div id="div_note_catatan_kritis_aplikasi">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Catatan kritis aplikasi</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_catatan_kritis_aplikasi" class="text-dark"> {{ makalah.note_catatan_kritis_aplikasi | safe }} </p>
-                  </div>
-              </div>
-          </div>
-          <div id="div_note_ide_manfaat_inovasi">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Ide manfaat inovasi</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_ide_manfaat_inovasi" class="text-dark"> {{ makalah.note_ide_manfaat_inovasi | safe }} </p>
-                  </div>
-              </div>
-          </div>
-          <div id="div_note_ide_risiko_inovasi">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Ide risiko inovasi</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_ide_risiko_inovasi" class="text-dark"> {{ makalah.note_ide_risiko_inovasi | safe }} </p>
-                  </div>
-              </div>
-          </div>
-          <div id="div_note_ide_risiko_inovasi_softwarefull">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Ide risiko inovasi software full</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_ide_risiko_inovasi_softwarefull" class="text-dark"> {{ makalah.note_ide_risiko_inovasi_softwarefull | safe }} </p>
-                  </div>
-              </div>
-          </div>
-          <div id="div_note_ide_risiko_inovasi_softwarealat">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Ide risiko inovasi software dg alat</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_ide_risiko_inovasi_softwarealat" class="text-dark"> {{ makalah.note_ide_risiko_inovasi_softwarealat | safe }} </p>
-                  </div>
-              </div>
-          </div>
-          <div id="div_note_analisis_latar_belakang">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Analisis latar belakang</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_analisis_latar_belakang" class="text-dark"> {{ makalah.note_analisis_latar_belakang | safe }} </p>
-                  </div>
-              </div>
-          </div>
-          <div id="div_note_analisis_metodologi">
-              <div class="row">
-                  <div class="col-md-2">
-                      <label>Note Analisis metodologi</label>
-                  </div>
-                  <div class="col-md-10">
-                      <p id="id_note_analisis_metodologi" class="text-dark"> {{ makalah.note_analisis_metodologi | safe }} </p>
-                  </div>
-              </div>
-          </div>
-
-
-
-
-
-
+        </div>
       </div>
     </div>
-</section>
+  </div>
+  </div>
+
+
+
+
 {% include 'includes/footer-7.html' %}
 {% endblock content %}
 {% block javascripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-
 if (document.getElementsByClassName('page-header')) {
     window.addEventListener('scroll', function() {
         var scrollPosition = window.pageYOffset;
@@ -557,29 +566,29 @@ if (document.getElementsByClassName('page-header')) {
 }
 
 $(window).on('load', function() {
-  $('#div_note_pertanyaan').hide();
-  $('#div_note_kritikan').hide();
-  $('#div_note_saran_pengembangan').hide();
-  $('#div_note_catatan_kritis_umum').hide();
-  $('#div_note_catatan_kritis_aplikasi').hide();
-  $('#div_note_ide_manfaat_inovasi').hide();
-  $('#div_note_ide_risiko_inovasi').hide();
-  $('#div_note_ide_risiko_inovasi_softwarefull').hide();
-  $('#div_note_ide_risiko_inovasi_softwarealat').hide();
-  $('#div_note_analisis_latar_belakang').hide();
-  $('#div_note_analisis_metodologi').hide();
+    $('#div_note_pertanyaan').hide();
+    $('#div_note_kritikan').hide();
+    $('#div_note_saran_pengembangan').hide();
+    $('#div_note_catatan_kritis_umum').hide();
+    $('#div_note_catatan_kritis_aplikasi').hide();
+    $('#div_note_ide_manfaat_inovasi').hide();
+    $('#div_note_ide_risiko_inovasi').hide();
+    $('#div_note_ide_risiko_inovasi_softwarefull').hide();
+    $('#div_note_ide_risiko_inovasi_softwarealat').hide();
+    $('#div_note_analisis_latar_belakang').hide();
+    $('#div_note_analisis_metodologi').hide();
 });
 
 // Change div note based on selected option of request type
 $('#request-type-selection').change(function() {
-  // Hide all divs
-  $('[id^="div_note_"]').hide();
+    // Hide all divs
+    $('[id^="div_note_"]').hide();
 
-  // Get the selected option
-  var selectedOption = $(this).val();
+    // Get the selected option
+    var selectedOption = $(this).val();
 
-  // Show the corresponding div
-  $('#div_note_' + selectedOption).show();
+    // Show the corresponding div
+    $('#div_note_' + selectedOption).show();
 });
 
 $(document).ready(function() {
@@ -608,7 +617,7 @@ document
     .getElementById("generateOpenAIcontent")
     .addEventListener("click", async () => {
         var id_makalah = "{{ makalah.id | escapejs }}";
-        var isi_judul_makalah  = "{{ makalah.judul_makalah | escapejs  }}";
+        var isi_judul_makalah = "{{ makalah.judul_makalah | escapejs  }}";
         var isi_abstrak = "{{ makalah.abstrak | escapejs }}";
         var isi_klaim = "{{ makalah.klaim | escapejs }}";
         var isi_latar_belakang = "{{ makalah.latar_belakang | escapejs }}";
@@ -638,21 +647,21 @@ document
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        data_id_makalah : id_makalah,
-                        data_judul_makalah : isi_judul_makalah,
-                        data_abstrak : isi_abstrak,
-                        data_klaim : isi_klaim,
-                        data_latar_belakang : isi_latar_belakang,
-                        data_maksud_tujuan : isi_maksud_tujuan,
-                        data_identifikasi_masalah : isi_identifikasi_masalah,
-                        data_analisis_masalah : isi_analisis_masalah,
-                        data_metodologi : isi_metodologi,
-                        data_desain_inovasi : isi_desain_inovasi,
-                        data_implementasi : isi_implementasi,
-                        data_evaluasi_implementasi : isi_evaluasi_implementasi,
-                        data_manfaat_finansial : isi_manfaat_finansial,
-                        data_manfaat_non_finansial : isi_manfaat_non_finansial,
-                        data_daftar_pustaka : isi_daftar_pustaka,
+                        data_id_makalah: id_makalah,
+                        data_judul_makalah: isi_judul_makalah,
+                        data_abstrak: isi_abstrak,
+                        data_klaim: isi_klaim,
+                        data_latar_belakang: isi_latar_belakang,
+                        data_maksud_tujuan: isi_maksud_tujuan,
+                        data_identifikasi_masalah: isi_identifikasi_masalah,
+                        data_analisis_masalah: isi_analisis_masalah,
+                        data_metodologi: isi_metodologi,
+                        data_desain_inovasi: isi_desain_inovasi,
+                        data_implementasi: isi_implementasi,
+                        data_evaluasi_implementasi: isi_evaluasi_implementasi,
+                        data_manfaat_finansial: isi_manfaat_finansial,
+                        data_manfaat_non_finansial: isi_manfaat_non_finansial,
+                        data_daftar_pustaka: isi_daftar_pustaka,
                         kategori_request: ketegoriRequest
                     }),
                 });

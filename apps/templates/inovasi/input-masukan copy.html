@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Masukan</title>
+</head>
+<body>
+
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.isi_masukan.id_for_label }}">{{ form.isi_masukan.label }}</label>
+                {{ form.isi_masukan }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Masukan saya</button>
+        </form>
+    
+
+</body>
+</html>

@@ -10,37 +10,30 @@
 
 {% block content %}
 
-  {% include 'includes/navigation.html' %}
+  {% include 'includes/navigation-light.html' %}
 
-  <header class="header-2">
-    <div class="page-header min-vh-75 relative" style="background-image: url('{% static 'assets/img/curved-images/curved1.jpg' %}')">
-      <span class="mask bg-gradient-primary"></span>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-white pt-3 mt-n5">Soft UI Design System Pro</h1>
-            <p class="lead text-white mt-3">Simple and innovative Web UI Kit built on top of Bootstrap 5. <br /> Join over 1.4 million developers around the world. </p>
-          </div>
-        </div>
-      </div>
-      <div class="position-absolute w-100 z-index-1 bottom-0">
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
-          <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g class="moving-waves">
-            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
-            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
-            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
-            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
-            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
-            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
-          </g>
-        </svg>
-      </div>
+    <!-- -------- START HEADER 3 w/ image on background ------- -->
+<header class="position-relative">
+    <div class="page-header" style="background-image: url('{% static 'assets/img/curved-images/curved14.jpg' %}'); height: 30vh;">
+        <span class="mask bg-gradient-dark opacity-6"></span>
     </div>
-  </header>
-
+    <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="moving-waves">
+                <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+                <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+                <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+                <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+            </g>
+        </svg>
+    </div>
+</header>
+<!-- -------- END HEADER 3 w/ image on background ------- -->
 
 
 
@@ -54,11 +47,13 @@
             Do you want to test and see the benefits of this Design System before purchasing it? It features enough basic components and sections for you to get a feel of the design and also test the quality of the code. Get it free on GitHub!
           </p>
           <div class="github-buttons">
-            <a href="https://appseed.us/product/django-soft-ui-design-system" target="_blank" rel="nofollow" class="btn bg-gradient-primary mb-5 mb-sm-0">View Free Version</a>
+            <a href="{% url 'makalah_home' %}" rel="nofollow" class="btn bg-gradient-primary mb-5 mb-sm-0">Daftar Makalah</a>
             <div class="github-button">
               <span></span>
             </div>
+            <br>
           </div>
+
         </div>
         <div class="col-md-5 col-12 my-auto">
           <a target="_blank" href="https://appseed.us/product/django-soft-ui-design-system">

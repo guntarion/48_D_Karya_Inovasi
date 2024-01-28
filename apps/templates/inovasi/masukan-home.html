@@ -18,7 +18,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-white text-center">
-            <h2 class="text-white">Daftar Makalah Inovasi</h2>
+            <h2 class="text-white">Daftar Masukan Juri dan Pembimbing Inovasi</h2>
             <p class="lead">PT PLN Nusantara Power Services </p>
           </div>
         </div>
@@ -35,12 +35,12 @@
   </header>
   <!-- -------- END HEADER 4 w/ search book a ticket form ------- -->
 
-    <div class="container mt-1">
+      <div class="container mt-1">
     <div class="row">
       <div class="col-lg-12">
         <div class="row">
       <div class="github-buttons">
-        <a href="{% url 'masukan_home' %}" rel="nofollow" class="btn bg-gradient-primary mb-5 mb-sm-0">Daftar Masukan</a>
+        <a href="{% url 'makalah_home' %}" rel="nofollow" class="btn bg-gradient-primary mb-5 mb-sm-0">Daftar Makalah</a>
         <div class="github-button">
           <span></span>
         </div>
@@ -49,44 +49,32 @@
       </div>
       </div>
 
-{% for makalah in makalahs %}
+{% for masukan in masukans %}
   <div class="container mt-7">
     <div class="row">
-
       <div class="col-lg-12">
         <div class="row">
-          <div class="col-lg-6 justify-content-center d-flex flex-column">
-            <div class="card">
-              {% comment %} <div class="d-block blur-shadow-image">
-                {% if makalah.thumbnail %}
-                  <img src="{{ makalah.thumbnail.url }}" alt="img-blur-shadow-blog-2" class="img-fluid border-radius-lg">
-                {% else %}
-                                  <!-- Display a default image or nothing -->
-                {% endif %} {% endcomment %}
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
-            <h6 class="category text-primary mt-3">{{ makalah.category }}</h6>
-            <h3 class="card-title">
-              <a href="{% url 'makalah_single_view' makalah.id %}" class="text-dark">{{ makalah.judul_makalah }}</a>
-            </h3>
-            <p class="card-description">
-              {{ makalah.abstrak | truncatewords:40 | safe }}  <a href="{% url 'makalah_single_view' makalah.id %}"  class="text-darker icon-move-right text-sm">Read More
-                <i class="fas fa-arrow-right text-xs ms-1"></i>
-              </a>
-            </p>
-            <p class="author">
-              Kata Kunci: <a href="javascript:;" class="ms-1"><span class="font-weight-bold text-primary"> {{ makalah.kata_kunci }}</span></a>
-            </p>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
+      <h6 class="category text-primary mt-3">Status: {{ masukan.status_masukan }}</h6>
+      <h3 class="card-title">
+        <a href="{% url 'masukan_single_view' masukan.id %}" class="text-dark">{{ masukan.judul_masukan }}</a>
+      </h3>
+      <p class="card-description">
+        {{ masukan.isi_masukan | truncatewords:40 | safe }}  <a href="{% url 'masukan_single_view' masukan.id %}"  class="text-darker icon-move-right text-sm">Read More
+          <i class="fas fa-arrow-right text-xs ms-1"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+   </div>
       </div>
     </div>
   </div>
 {% empty %}
-  <p>No makalahs found.</p>
+  <p>No masukans found.</p>
 {% endfor %}
+
 
   {% include 'includes/footer-5.html' %}
 

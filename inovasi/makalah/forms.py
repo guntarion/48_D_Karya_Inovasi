@@ -1,5 +1,5 @@
 from django import forms
-from .models import Makalah
+from .models import Makalah, Masukan
 from ckeditor.widgets import CKEditorWidget
 
 class MakalahForm(forms.ModelForm):
@@ -37,3 +37,42 @@ class MakalahForm(forms.ModelForm):
             'manfaat_non_finansial': forms.Textarea(attrs={'placeholder': 'Manfaat non Finansial', 'style': 'width:60%;'}),
             'daftar_pustaka': forms.Textarea(attrs={'placeholder': 'Daftar Pustaka', 'style': 'width:60%;'}),
         }
+
+# class MasukanForm(forms.ModelForm):
+#     isi_masukan = forms.CharField(
+#         widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'style': 'width:60%;'}))
+#     class Meta:
+#         model = Masukan
+#         fields = ('isi_masukan',)
+
+
+class MasukanForm(forms.ModelForm):
+    judul_masukan = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={'style': 'width:50%;'}))
+    isi_masukan = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'style': 'width:60%;'}))
+    class Meta:
+        model = Masukan
+        fields = ['judul_masukan', 'isi_masukan']
+
+
+class MasukanFollowUpForm(forms.ModelForm):
+    judul_masukan = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={'style': 'width:50%;', 'readonly': 'true'}))
+    isi_masukan = forms.CharField(required=False, widget=forms.Textarea(
+        attrs={'class': 'form-control', 'rows': 5, 'style': 'width:60%;', 'readonly': 'true'}))
+    followup_masukan = forms.CharField(widget=forms.Textarea(
+        attrs={'class': 'form-control', 'rows': 5, 'style': 'width:60%;'}))
+    komentar = forms.CharField(required=False, widget=forms.Textarea(
+        attrs={'class': 'form-control', 'rows': 5, 'style': 'width:60%;'}))
+    status_masukan = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'style': 'width:15%;'}))
+    pemberi_masukan_username = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={'readonly': 'readonly', 'disabled': 'disabled'}))
+
+    class Meta:
+        model = Masukan
+        fields = ['judul_masukan', 'isi_masukan', 'status_masukan', 'followup_masukan', 'komentar']
+
+    def __init__(self, *args, **kwargs):
+        super(MasukanFollowUpForm, self).__init__(*args, **kwargs)
+        self.fields['pemberi_masukan_username'].initial = self.instance.pemberi_masukan.username

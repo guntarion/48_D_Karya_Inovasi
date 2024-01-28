@@ -65,3 +65,27 @@ class Makalah(TimeStampedModel):
     def __str__(self):
         return self.judul_makalah
 
+class Masukan(TimeStampedModel):
+    STATUS_CHOICES = [
+        ('open', 'Open'),
+        ('on_progress', 'On Progress'),
+        ('done', 'Done'),
+        ('closed', 'Closed'),
+    ]
+
+    makalah = models.ForeignKey(Makalah, on_delete=models.CASCADE)
+    pemberi_masukan = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="pemberi_masukan"
+    )
+    judul_masukan = models.CharField(max_length=255)
+    isi_masukan = models.TextField(blank=True, null=True)
+    status_masukan = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='open',
+    )
+    followup_masukan = models.TextField(blank=True, null=True)
+    komentar = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.isi_masukan + " - " + self.makalah.judul_makalah + " - " + self.pemberi_masukan.username
