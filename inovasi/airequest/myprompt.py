@@ -1,4 +1,19 @@
 
+def get_prompt_ideasi(
+    inputan_kategori_request, inputan_data_ide_judul, inputan_data_latar_belakang, inputan_data_solusi):
+
+    if inputan_kategori_request == 'saransolusi':
+        konten = f"Berikut adalah rencana atau ide [judul ide inovasi] = '{inputan_data_ide_judul}', dengan [latar belakang] = {inputan_data_latar_belakang}, dan [rencana solusi] = {inputan_data_solusi}.\n"
+        instruksi = """
+        Berdasarkan [latar belakang] yang disebutkan, dalam konteks perusahaan yang bergerak di bidang pembangkitan tidak tersedia  maka berikan listrik sebagai pengelola operasional dan maintenance pembangkit listrik termasuk segala aspek manajerial terkait, dengan menjadikan [judul ide inovasi] sebagai titik untuk menghasilkan ide, beri satu masukan berdasarkan pertimbangan matang terkait solusi semacam apa yang paling sesuai untuk ditindaklanjuti menjadi karya inovasi/solusi, untuk menjawab [latar belakang] yang diberikan. Berikan argumen dan penjelasan Anda. Jika [rencana solusi] tersedia, Anda juga bisa memberikan komentar konstruktif tentangnya. 
+        Jika [rencana solusi] tidak tersedia, maka berikan satu ide solusi yang menurut Anda paling sesuai, untuk ditindaklanjuti menjadi karya inovasi/solusi, untuk menjawab [latar belakang] yang diberikan. Berikan argumen dan penjelasan Anda.
+        """
+
+    else:
+        konten = f"Saya hendak membahas topik berikut: {inputan_data_ide_judul}.\n"
+        instruksi = "Berikan komentar kritis tentangnya"
+
+    return f"{konten} {instruksi}"
 
 def get_prompt_analisis_makalah(kategori_request, inputan_judul_makalah, inputan_abstrak, inputan_klaim, inputan_latar_belakang, inputan_maksud_tujuan, inputan_identifikasi_masalah, inputan_analisis_masalah, inputan_metodologi, inputan_desain_inovasi, inputan_implementasi, inputan_evaluasi_implementasi, inputan_manfaat_finansial, inputan_manfaat_non_finansial, inputan_daftar_pustaka):
 

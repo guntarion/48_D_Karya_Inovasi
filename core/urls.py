@@ -16,6 +16,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('makalah/', include('inovasi.makalah.urls')),
     path('airequest/', include('inovasi.airequest.urls')),
+    path('ideasi/', include('inovasi.ideasi.urls')),
 
     # Leave `Home.Urls` as last the last line
     path("", include("apps.home.urls"))

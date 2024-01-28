@@ -68,7 +68,7 @@
 {% include 'includes/navigation-light.html' %}
 <!-- -------- START HEADER 3 w/ image on background ------- -->
 <header class="position-relative">
-    <div class="page-header min-vh-50" style="background-image: url('{% static 'assets/img/curved-images/curved14.jpg' %}');">
+     <div class="page-header" style="height: 30vh; background-image: url('{% static 'assets/img/curved-images/curved14.jpg' %}');">
         <span class="mask bg-gradient-dark opacity-6"></span>
     </div>
     <div class="position-absolute w-100 z-index-1 bottom-0">
@@ -399,23 +399,22 @@
         <hr class="hrline">
 
 
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                         <div class="row">
-                            <label for="{{ form_masukan.judul_masukan.id_for_label }}">{{ form_masukan.judul_masukan.label }}</label>
-                            {{ form_masukan.judul_masukan }}
-                        </div>
-                        <div class="row">
-                            <label for="{{ form_masukan.isi_masukan.id_for_label }}">{{ form_masukan.isi_masukan.label }}</label>
-                            {{ form_masukan.isi_masukan }}
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit Masukan saya</button>
-                </form>
+        <form method="post" id="form-masukan">
+            {% csrf_token %}
+            <div class="form-group">
+                    <div class="row">
+                    <label for="{{ form_masukan.judul_masukan.id_for_label }}">{{ form_masukan.judul_masukan.label }}</label>
+                    {{ form_masukan.judul_masukan }}
+                </div>
+                <div class="row">
+                    <label for="{{ form_masukan.isi_masukan.id_for_label }}">{{ form_masukan.isi_masukan.label }}</label>
+                    {{ form_masukan.isi_masukan }}
+                </div>
+            </div>
+            <button type="submit" id="submit-button" class="btn btn-primary">Submit Masukan saya</button>
+        </form>
     
         
-
  
 
           <div id="div_note_pertanyaan">
@@ -603,7 +602,29 @@ $(document).ready(function() {
     });
 });
 
+{% comment %} $(document).ready(function () {
+    $('#submit-button').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/makalah/{{ makalah.id }}/',
+            data: $('#form-masukan').serialize(),
+            headers: {
+                'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function(response) {
+                // Handle the response here
+                if (response.message === 'Success') {
+                    console.log('Form submitted successfully');
+                } else {
+                    console.error('Error occurred:', response.message);
+                }
+            }
+        });
+    });
+}); {% endcomment %}
 
+// Request for OpenAI content
 document
     .getElementById("generateOpenAIcontent")
     .addEventListener("click", async () => {

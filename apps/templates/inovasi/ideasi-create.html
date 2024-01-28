@@ -1,0 +1,275 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Blog Author {% endblock %}
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+    @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @-webkit-keyframes rotate {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      .load {
+        width: 100px;
+        height: 100px;
+        margin: 110px auto 0;
+        border: solid 10px #8822aa;
+        border-radius: 50%;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        -webkit-transition: all 0.5s ease-in;
+        -webkit-animation-name: rotate;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+
+        transition: all 0.5s ease-in;
+        animation-name: rotate;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      .paragraph-space {
+        margin-bottom: 20px;
+      }
+
+    .hrline {
+        border: none;
+        height: 2px;
+        color: #333; /* background color */
+        background-color: #333; /* same as border color */
+    }
+
+    .additional-text {
+        color: #999999; /* Change color to darker grey */
+        font-size: 12px; /* Change font size to 14px */
+        /* Add more styles as needed */
+    }
+    </style>
+{% endblock %}
+{% block body_class %} blog-single-makalah {% endblock %}
+{% block content %}
+{% include 'includes/navigation-light.html' %}
+<!-- -------- START HEADER 3 w/ image on background ------- -->
+<header class="position-relative">
+     <div class="page-header" style="height: 30vh; background-image: url('{% static 'assets/img/curved-images/curved14.jpg' %}');">
+        <span class="mask bg-gradient-dark opacity-6"></span>
+    </div>
+    <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="moving-waves">
+                <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+                <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+                <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+                <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+            </g>
+        </svg>
+    </div>
+</header>
+<!-- -------- END HEADER 3 w/ image on background ------- -->
+<div class="container py-2 mt-2">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                {% comment %} <li class="breadcrumb-item"><a href="{% url 'makalah_home' %}">Daftar Makalah</a></li> {% endcomment %}
+                <li class="breadcrumb-item active" aria-current="page">Create Ideasi</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- START Blogs w/ 3 images & quote & text -->
+<section class="py-1 mt-5">
+    <div class="container">
+
+    <form method="post" id="form-masukan">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="row">
+                <label for="">Nama Ide</label>
+                <input type="text" id="nama_ide" placeholder="" class="form-control" style="width: 60%;">
+            </div>
+            <div class="row">
+                <label for="">Latar Belakang</label>
+                <textarea id="latar_belakang_ide" placeholder="" class="form-control" rows="10" style="width: 60%;"></textarea>
+            </div>
+            <div class="row">
+                <label for="">Rencana Solusi</label>
+                <textarea id="ide_solusi" placeholder="" class="form-control" rows="10" style="width: 60%;"></textarea>
+            </div>
+        </div>
+    </form>
+    {% comment %} <button type="submit" id="submit-button" class="btn btn-primary">Simpan Ide saya</button> {% endcomment %}
+
+
+
+</div>
+
+</section>
+
+  
+
+<!-- END Blogs w/ 3 images & quote & text -->
+<section class="py-1 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 ms-auto me-auto">
+            </div>
+            <div class="col-lg-10 ms-auto me-auto">
+                <select class="form-contro" aria-label="Pilihan Analisis AI" id="request-type-selection">
+                    <option selected>Pilih Jenis Masukan oleh AI</option>
+                    <option value="saransolusi">Saran Solusi</option>
+                    <option value="latarbelakang">Penekanan Latar Belakang</option>
+                    <option value="metodologi">Metodologi</option>
+                </select>
+            </div>
+        </div>
+        <br>
+      
+        <div class="row">
+            <div class="col-lg-4 ms-auto me-auto">
+                <button id="generateOpenAIcontent" type="button" class="btn bg-gradient-primary w-100">Generate</button>
+            </div>
+            <div class="col-lg-4 ms-auto me-auto">
+                
+            </div>
+        </div>
+        <div class="row">
+            <!-- section for loading circle -->
+            <div style="display: none" id="loading-circle" class="load"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 ms-auto me-auto">
+            </div>
+            <div class="col-lg-9 ms-auto me-auto">
+                <div class="col-lg-9">
+                    <div id="outputOpenAI" style="height: auto;"></div>
+                </div>
+            </div>
+        </div>
+        <hr class="hrline">
+
+
+      
+
+
+
+      </div>
+    </div>
+</section>
+{% include 'includes/footer-7.html' %}
+{% endblock content %}
+{% block javascripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+if (document.getElementsByClassName('page-header')) {
+    window.addEventListener('scroll', function() {
+        var scrollPosition = window.pageYOffset;
+        var bgParallax = document.querySelector('.page-header');
+        var limit = bgParallax.offsetTop + bgParallax.offsetHeight;
+        if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit) {
+            bgParallax.style.backgroundPositionY = (50 - 10 * scrollPosition / limit * 3) + '%';
+        } else {
+            bgParallax.style.backgroundPositionY = '50%';
+        }
+    });
+}
+
+
+
+var ide_judul, ide_latar_belakang, ide_solusi;
+{% comment %} document.getElementById('nama_ide').addEventListener('input', function(e) {
+    ide_judul = e.target.value;
+});
+document.getElementById('latar_belakang_ide').addEventListener('input', function(e) {
+    ide_latar_belakang = e.target.value;
+});
+document.getElementById('ide_solusi').addEventListener('input', function(e) {
+    ide_solusi = e.target.value;
+});     {% endcomment %}
+
+// Request for OpenAI content
+document
+    .getElementById("generateOpenAIcontent")
+    .addEventListener("click", async () => {
+
+        const nama_ide = document.getElementById("nama_ide").value;
+        const latar_belakang_ide = document.getElementById("latar_belakang_ide").value;
+        const ide_solusi = document.getElementById("ide_solusi").value;
+        var ketegoriRequest = document.getElementById('request-type-selection').value;
+     
+        // console.log('inputanUser' + nama_ide);
+        // console.log(latar_belakang_ide);
+        // console.log(ide_solusi);
+        // console.log(ketegoriRequest);
+
+        if (nama_ide) {
+            document.getElementById("loading-circle").style.display = "block";
+
+            const endpointUrl = "/airequest/ideasi/";
+
+            try {
+                console.log('try to send');
+                const response = await fetch(endpointUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        data_ide_judul : nama_ide,
+                        data_latar_belakang : latar_belakang_ide,
+                        data_solusi : ide_solusi,
+                        kategori_request: ketegoriRequest
+                    }),
+                });
+                console.log(response);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const jawaban = data.generated_idea;
+                console.log(jawaban)
+                // historyOutput.value += '\n---\n' + jawaban;
+
+                // document.getElementById('outputOpenAI').value = jawaban;
+                $('#outputOpenAI').html(jawaban);
+
+                // document.getElementById('id_narasi_konten').value = data.generated_idea;
+
+
+            } catch (error) {
+                console.error("Error occurred:", error);
+                console.log("Mohon maaf, ada yang salah. Please try again later." + error);
+                // alert("Mohon maaf, ada yang salah. Please try again later.");
+            }
+            document.getElementById("loading-circle").style.display = "none";
+        } else {
+            alert("Harap masukkan konten.");
+        }
+    });
+</script>
+{% endblock %}

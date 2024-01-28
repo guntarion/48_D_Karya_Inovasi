@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     # Apps
     'inovasi.airequest',
     'inovasi.makalah',
+    'inovasi.ideasi',
 ]
 
 MIDDLEWARE = [
@@ -245,7 +246,7 @@ if TWITTER_AUTH:
             'key': ''
         }
     }
-SITE_ID = 5
+SITE_ID = 6
 
 CKEDITOR_CONFIGS = {
     'default': {
