@@ -1,0 +1,44 @@
+Di saat juri sedang menskoring, sebenarnya kesulitan untuk mengajukan pertanyaan
+Di saat berusaha memahami ide inovasi dan berpikir mengajukan pertanyana, sebenarnya tidak bisa menjuri
+Juri yang bisa memberikan banyak masukan, kalau bukan karena aspek kesaktian dan jam terbang, berarti karena sudah mengalokasikan banyak waktu untuk mencerna makalah.
+
+
+Tahap presentasi dan penjurian adalah ajang meng-improve inovasi
+
+Apa yang penting bagi inovator bukan skornya, tapi pertanyaan yang tajam dan berkualitas, masukan perbaikan yang mengena dan bermanfaat
+Tapi skor sendiri akan bermanfaat bila ada keterangan yang menyertai, dari mana skor itu berasal --> sehingga jelas follow-up bagi inovator
+Tapi boro-boro memberi justifikasi atas skoring, waktu sudah habis untuk sebatas men-skoring
+
+Aktivitas Juri
+Mencerna dan memahami makalah dan ide inovasi
+Mengajukan pertanyaan untuk memperjelas, bagi juri dalam rangka memahami
+Mengajukan pertanyaan berkualitas, bagi peserta 
+Memberikan masukan yang berbobot dan bermanfaat
+
+Memberi skoring, mengajukan pertanyaan, memberi masukan = tiga perkara berbeda 
+Bagaimana jika ketiganya bisa diwujudkan dengan lebih mudah, lebih murah, lebih cepat?
+Dari sisi juri, hal ini tergantung oleh: 1) skill analitis & kecerdasan 2) wawasan, pengalaman, jam terbang relevan 3) ketersediaan waktu
+Seringkali, permasalahannya ada di ketersediaan waktu
+Alangkah baiknya bila skill para juri bisa dipolakan, ditanamkan dan dilatihkan pada AI, dan diterapkan oleh Agen AI
+
+Pertanyaan dari juri: 1) untuk juri lebih memahami inovasi 2) untuk mengasah dan menguji 3) untuk bahan pertimbangan dan masukan improvement inovasi
+Kelengkapan informasi makalah & presentasi tidak seragam; waktu bisa habis untuk pertanyaan kategori 1 yg tidak memberi value improvement bagi inovasi; cuma gara-gara ide tidak disampaikan dg baik 
+Alangkah baiknya bila sebelum masuk penjurian, karya peserta sudah "terstandarkan" hingga batas minimal.
+Alangkah baiknya bila peserta bisa mendapatkan masukan sebelum masuk sesi penjurian
+
+Juri memberi masukan-masukan, tetapi:
+Tidak semua bisa ditangkap sbg poin to-do-list oleh inovator
+Pemahaman akan to-do-list, antara inovator dan juri, berbeda
+Tidak ada pelacakan apa to-do-list nya sudah dilaksanakan
+Alangkah baiknya bila to-do-list tersebut terlacak penindaklanjutannya
+
+Maksud:
+Memfasilitasi pengkritisan inovasi (pertanyaan & masukan) dengan bantuan Agen AI
+Memfasilitasi penindaklanjutan masukan oleh juri
+
+Tujuan:
+Mendorong improvement inovasi sesuai arahan
+Meningkatkan level kualitas ide inovasi dan makalahnya
+Memperbanyak tingkat partisipasi (kelahiran) ide
+Mengefisienkan dan mengefektifkan tahap seleksi inovasi
+

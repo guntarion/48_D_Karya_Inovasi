@@ -5,8 +5,46 @@ def get_prompt_ideasi(
     if inputan_kategori_request == 'saransolusi':
         konten = f"Berikut adalah rencana atau ide [judul ide inovasi] = '{inputan_data_ide_judul}', dengan [latar belakang] = {inputan_data_latar_belakang}, dan [rencana solusi] = {inputan_data_solusi}.\n"
         instruksi = """
-        Berdasarkan [latar belakang] yang disebutkan, dalam konteks perusahaan yang bergerak di bidang pembangkitan tidak tersedia  maka berikan listrik sebagai pengelola operasional dan maintenance pembangkit listrik termasuk segala aspek manajerial terkait, dengan menjadikan [judul ide inovasi] sebagai titik untuk menghasilkan ide, beri satu masukan berdasarkan pertimbangan matang terkait solusi semacam apa yang paling sesuai untuk ditindaklanjuti menjadi karya inovasi/solusi, untuk menjawab [latar belakang] yang diberikan. Berikan argumen dan penjelasan Anda. Jika [rencana solusi] tersedia, Anda juga bisa memberikan komentar konstruktif tentangnya. 
-        Jika [rencana solusi] tidak tersedia, maka berikan satu ide solusi yang menurut Anda paling sesuai, untuk ditindaklanjuti menjadi karya inovasi/solusi, untuk menjawab [latar belakang] yang diberikan. Berikan argumen dan penjelasan Anda.
+        Berdasarkan [latar belakang] yang disebutkan, dalam konteks perusahaan yang bergerak di bidang pembangkitan listrik, dalam fungsi operation & maintenance pembangkit listrik termasuk segala aspek manajerial terkait; 
+        1. Beri komentar/remark berkualitas atas [rencana solusi], beri pandangan untuk lebih memperjelas dari apa yang sudah disampaikan, 
+        2. Terhadap [rencana solusi], beri masukan terkait fitur atau fungsionalitas apa yang perlu ditambahkan/diterapkan. 
+        3. Jika perlu dan relevan, beri masukan terkait fitur atau fungsionalitas apa yang perlu dihilangkan/ditidak diterapkan.
+        """
+
+    if inputan_kategori_request == 'pengembangan':
+        konten = f"Berikut adalah rencana atau ide [judul ide inovasi] = '{inputan_data_ide_judul}', dengan [latar belakang] = {inputan_data_latar_belakang}, dan [rencana solusi] = {inputan_data_solusi}.\n"
+        instruksi = """
+        Berdasarkan [latar belakang] yang disebutkan dan [rencana solusi] sebagai solusi dan apa yang renana akan diimplementasi, bertindaklah sebagai implementator bagi ide inovasi tersebut: 
+        1. Sampaikan seperti apa langkah kerja atau tahapan pengembangan hingga implementasi dan evaluasinya; tambahkan lain hal yang Anda rasa penting untuk dipertimbangkan. 
+        2. Beri remarks tambahan yang menunjukkan bahwa Anda adalah orang yang sangat piawai di pengembangan perangkat lunak. Tidak perlu ragu menggunakan istilah yang sulit atau teknis dan sophisticated. 
+        """
+
+    if inputan_kategori_request == 'rancanganaplikasi':
+        konten = f"Berikut adalah rencana atau ide [judul ide inovasi] = '{inputan_data_ide_judul}', dengan [latar belakang] = {inputan_data_latar_belakang}, dan [rencana solusi] = {inputan_data_solusi}.\n"
+        instruksi = """
+        Berdasarkan [latar belakang] yang disebutkan, buatkan rancangan perangkat lunak yang paling sesuai untuk ditindaklanjuti menjadi karya inovasi/solusi. Berikan penjelasan tentang fitur apa saja yang perlu/sebaiknya disediakan berikut sedikit penjelasan tentangnya; sampaikan metodologi pengembangannya, ukuran efektivitas apa yang perlu digunakan, dan lain hal yang Anda rasa penting untuk dipertimbangkan. Tidak perlu ragu menggunakan istilah yang sulit atau teknis dan sophisticated. 
+        """
+
+    if inputan_kategori_request == 'skoringlatarbelakang':
+        konten = f"Berikut adalah rencana atau ide [judul ide inovasi] = '{inputan_data_ide_judul}', dengan [latar belakang] = {inputan_data_latar_belakang}, dan [rencana solusi] = {inputan_data_solusi}.\n"
+        instruksi = """
+
+        Dari informasi yang ada, lakukan penilaian terkait 'Relevansi Latar Belakang Masalah/Akar Permasalahan Terhadap Penyelesaian Masalah', atas aspek berikut:
+        1. Seberapa baik ide inovasi mengidentifikasi masalah nyata yang dihadapi; pemahaman yang mendalam tentang masalah tersebut, termasuk aspek-aspek seperti sebab, dampak, dan konteks di mana masalah itu terjadi.
+        2. Menilai seberapa relevan ide inovasi dengan kebutuhan atau tantangan aktual yang dihadapi oleh perusahaan atau industri. Ide inovasi harus berakar pada kebutuhan nyata, bukan hanya pada teori atau spekulasi.
+        3. Apakah inovasi didasarkfan pada analisis yang mendalam tentang akar permasalahan. Termasuk memahami berbagai faktor yang berkontribusi pada masalah dan bagaimana inovasi dapat mengatasinya.
+
+        Berikan skor dengan menggunakan ini sebagai acuan penilaian:
+
+        - Skor 41-50: Predikat Rendah. Indikator: Bilamana ide inovasi menunjukkan pemahaman yang sangat terbatas tentang masalah. Analisis masalah dangkal dan kurang terkait dengan solusi yang diusulkan.
+        - Skor 51-60. Predikat Cukup. Indikator: Identifikasi masalah yang cukup, tetapi analisisnya tidak terlalu mendalam atau tidak sepenuhnya relevan dengan solusi yang diusulkan. Pemahaman tentang akar masalah dan relevansinya dengan solusi cukup.
+        - Skor 61-70. Predikat Memadai. Indikator: Identifikasi dan analisis masalah yang memadai. Ide inovasi berhubungan dengan masalah yang relevan, meskipun masih ada ruang untuk peningkatan dalam pemahaman atau analisis yang lebih mendalam.
+        - Skor 71-80. Predikat Baik. Indikator: Pemahaman yang baik tentang masalah dan analisis yang relevan. Ide inovasi terhubung dengan baik dengan masalah yang diidentifikasi dan menunjukkan potensi solusi yang efektif.
+        - Skor 81-90. Predikat Sangat Baik. Indikator: Analisis masalah yang sangat baik dan relevan. Ide inovasi menunjukkan pemahaman yang mendalam tentang masalah dan akar permasalahannya, dengan solusi yang sangat terkait dan berpotensi efektif.
+        - Skor 91-100. Predikat Luar Biasa. Indikator: Pemahaman yang luar biasa tentang masalah dan akar permasalahannya. Analisis yang sangat mendalam dan terperinci, dengan ide inovasi yang sangat relevan dan menawarkan solusi yang sangat potensial dan inovatif.
+
+        Respon Anda berupa satu angka skoring dalam rentang 41 sampai dengan 100, dengan menyertakan alasan dan pertimbangan berdasarkan isi makalah. Anda mungkin juga ingin memberikan saran untuk perbaikan atau peningkatan yang dapat membantu meningkatkan kualitas dan efektivitas karya inovasi tersebut. Anda memberi respon dengan mengawalinya dengan 'Skor yang saya berikan untuk aspek Relevansi Latar Belakang Permasalahan terhadap Penyelesaian Masalah adalah ... karena ...'
+
         """
 
     else:

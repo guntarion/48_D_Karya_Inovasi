@@ -149,7 +149,7 @@ def openai_request_for_ideasi(request):
             inputan_data_solusi = data['data_solusi']
             inputan_kategori_request = data['kategori_request']
 
-            profiling = "Anda adalah karyawan senior di perusahaan pembangkitan listrik PLN NP Services. Anda piawai dalam menghasilkan karya inovasi. Bantu saya memberi masukan konstruktif untuk karya inovasi. Anda sangat suka memberi masukan yang mencerahkan. Respon Anda tidak menyertakan pembukaan atau penutupan, tidak menambahkan komentar tambahan di akhir. Format harus dalam format html plain text, dengan tags HTML sederhana <ol> <li>[respon]</li> </ol> untuk membuat ordered list."
+            profiling = "Anda adalah karyawan senior di perusahaan pembangkitan listrik PLN NP Services. Anda piawai dalam menghasilkan dan memberi kritikan konstruktif terhadap karya inovasi. Bantu saya memberi masukan konstruktif untuk karya inovasi. Anda sangat suka memberi masukan yang mencerahkan. Respon Anda tidak menyertakan pembukaan atau penutupan. Format respon Anda dengan tag html sederhana untuk paragraph <p>[respon]</p> dan untuk membuat ordered list sesuai keperluan <ol> <li>[respon]</li> </ol>"
             narasi_prompt = get_prompt_ideasi(
                 inputan_kategori_request, inputan_data_ide_judul, inputan_data_latar_belakang, inputan_data_solusi)
 
