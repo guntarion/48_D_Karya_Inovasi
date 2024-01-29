@@ -157,8 +157,8 @@ def openai_request_for_ideasi(request):
                 api_key=os.environ['OPENAI_API_KEY'],
             )
             completion = client.chat.completions.create(
-                # model="gpt-3.5-turbo",
-                model="gpt-4-0613",
+                model="gpt-3.5-turbo",
+                # model="gpt-4-0613",
                 messages=[
                     {"role": "system", "content": profiling},
                     {"role": "user", "content": narasi_prompt}
