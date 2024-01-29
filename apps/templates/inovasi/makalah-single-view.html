@@ -379,6 +379,13 @@
         </div>
         <br>
         <div class="row">
+            <div class="col-lg-8 ms-auto me-auto">
+            <div id="fail-alert-notification" class="alert alert-warning text-white font-weight-bold" role="alert" style="display: none;">
+                Terjadi Gangguan di Server OpenAI! Harap reload page ini dan coba lagi.
+            </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-6 ms-auto me-auto">
                 <button id="generateOpenAIcontent" type="button" class="btn bg-gradient-primary w-100">Generate</button>
             </div>
@@ -697,6 +704,14 @@ document
             } catch (error) {
                 console.error("Error occurred:", error);
                 console.log("Mohon maaf, ada yang salah. Please try again later." + error);
+                // Show the success alert
+                var successAlert = document.getElementById('fail-alert-notification');
+                successAlert.style.display = 'block';
+
+                // Hide the success alert after 3 seconds
+                setTimeout(function() {
+                    successAlert.style.display = 'none';
+                }, 3000);
                 // alert("Mohon maaf, ada yang salah. Please try again later.");
             }
             document.getElementById("loading-circle").style.display = "none";
